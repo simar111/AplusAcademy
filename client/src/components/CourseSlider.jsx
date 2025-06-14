@@ -91,7 +91,7 @@ const CourseSlider = () => {
       id: 3,
       title: "NAATI CCL Expert",
       description: "5-point bonus strategies with native-level coaching and government-approved curriculum.",
-      image: "/images/imagee2.jpg",
+      image: "/images/imagee2.png",
       icon: <Award className="w-7 h-7 text-white" />,
       features: [
         { 
@@ -126,7 +126,7 @@ const CourseSlider = () => {
 
   return (
     <section 
-      className="relative py-20 bg-gradient-to-b from-gray-50 to-gray-100 overflow-hidden"
+      className="relative py-12 sm:py-20 bg-gradient-to-b from-gray-50 to-gray-100 overflow-hidden"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
@@ -160,7 +160,7 @@ const CourseSlider = () => {
 
       <div className="container mx-auto px-4 relative z-10">
         {/* Section Header */}
-        <div className="text-center mb-16">
+        <div className="text-center mb-8 sm:mb-16">
           <motion.span 
             className="inline-block bg-red-600/10 text-red-600 text-sm font-medium px-4 py-1 rounded-full mb-4"
             initial={{ opacity: 0, y: 20 }}
@@ -170,7 +170,7 @@ const CourseSlider = () => {
             Our Programs
           </motion.span>
           <motion.h2 
-            className="text-4xl md:text-5xl font-bold text-gray-800 mb-4"
+            className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-800 mb-4"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4 }}
@@ -184,7 +184,7 @@ const CourseSlider = () => {
             transition={{ delay: 0.6, duration: 0.8 }}
           />
           <motion.p 
-            className="text-gray-600 max-w-2xl mx-auto text-lg"
+            className="text-gray-600 max-w-2xl mx-auto text-base sm:text-lg"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.8 }}
@@ -198,26 +198,26 @@ const CourseSlider = () => {
           {/* Navigation Arrows */}
           <motion.button 
             onClick={prevSlide}
-            className="absolute left-4 top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full bg-white shadow-xl flex items-center justify-center text-red-600 hover:bg-red-50 transition-all"
+            className="absolute left-4 top-1/2 -translate-y-1/2 z-20 w-10 sm:w-12 h-10 sm:h-12 rounded-full bg-white shadow-xl flex items-center justify-center text-red-600 hover:bg-red-50 transition-all"
             whileHover={{ scale: 1.1, boxShadow: "0 5px 15px rgba(0,0,0,0.2)" }}
             whileTap={{ scale: 0.95 }}
             aria-label="Previous course"
           >
-            <ChevronLeft className="w-6 h-6" />
+            <ChevronLeft className="w-5 sm:w-6 h-5 sm:h-6" />
           </motion.button>
           
           <motion.button 
             onClick={nextSlide}
-            className="absolute right-4 top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full bg-white shadow-xl flex items-center justify-center text-red-600 hover:bg-red-50 transition-all"
+            className="absolute right-4 top-1/2 -translate-y-1/2 z-20 w-10 sm:w-12 h-10 sm:h-12 rounded-full bg-white shadow-xl flex items-center justify-center text-red-600 hover:bg-red-50 transition-all"
             whileHover={{ scale: 1.1, boxShadow: "0 5px 15px rgba(0,0,0,0.2)" }}
             whileTap={{ scale: 0.95 }}
             aria-label="Next course"
           >
-            <ChevronRight className="w-6 h-6" />
+            <ChevronRight className="w-5 sm:w-6 h-5 sm:h-6" />
           </motion.button>
 
-          {/* Slides - Full Width with increased height */}
-          <div className="relative h-[650px] overflow-hidden"> {/* Increased from 600px to 650px */}
+          {/* Slides - Responsive Height */}
+          <div className="relative h-[600px] sm:h-[650px] lg:h-[650px] overflow-hidden">
             <AnimatePresence mode="wait">
               {courses.map((course, index) => (
                 currentSlide === index && (
@@ -230,8 +230,8 @@ const CourseSlider = () => {
                     transition={{ type: "spring", stiffness: 300, damping: 30 }}
                   >
                     <div className="flex flex-col lg:flex-row h-full">
-                      {/* Course Image - Full Height */}
-                      <div className="lg:w-1/2 h-64 lg:h-full relative overflow-hidden">
+                      {/* Course Image - Full Width in Mobile, Half in Desktop */}
+                      <div className="w-full lg:w-1/2 h-72 sm:h-96 lg:h-full relative overflow-hidden">
                         <motion.div
                           className="absolute inset-0 bg-gradient-to-r from-gray-900/20 to-transparent z-10"
                           animate={{
@@ -239,49 +239,48 @@ const CourseSlider = () => {
                           }}
                           transition={{ duration: 2 }}
                         />
-                        
                         <motion.img
-    src={course.image}
-    alt={course.title}
-    className="w-full h-full object-cover object-center"
-    style={{
-      imageRendering: '-webkit-optimize-contrast',
-      imageRendering: 'crisp-edges'
-    }}
-    initial={{ scale: 1.1 }}
-    animate={{ scale: isHovered ? 1.05 : 1 }}
-    transition={{ duration: 0.8 }}
-  />
-                        
+                          src={course.image}
+                          alt={course.title}
+                          className="w-full h-full object-cover object-top"
+                          style={{
+                            imageRendering: '-webkit-optimize-contrast',
+                            imageRendering: 'crisp-edges'
+                          }}
+                          initial={{ scale: 1.1 }}
+                          animate={{ scale: isHovered ? 1.05 : 1 }}
+                          transition={{ duration: 0.8 }}
+                        />
                         {/* Course Badge */}
                         <motion.div 
-                          className="absolute top-6 left-6 bg-white/90 backdrop-blur-sm rounded-xl p-3 shadow-lg flex items-center"
+                          className="absolute top-4 sm:top-6 left-4 sm:left-6 bg-white/90 backdrop-blur-sm rounded-xl p-2 sm:p-3 shadow-lg flex items-center"
                           initial={{ opacity: 0, x: -20 }}
                           animate={{ opacity: 1, x: 0 }}
                           transition={{ delay: 0.4 }}
                         >
                           {course.icon}
-                          <span className="font-bold text-gray-800 ml-2">{course.title.split(' ')[0]}</span>
+                          <span className="font-bold text-gray-800 ml-2 text-sm sm:text-base">
+                            {course.title.split(' ')[0]}
+                          </span>
                         </motion.div>
-                        
                         {/* Guarantee Badge */}
                         <motion.div 
-                          className={`absolute bottom-6 left-6 bg-gradient-to-r ${course.badgeColor} text-white px-4 py-2 rounded-full flex items-center`}
+                          className={`absolute bottom-4 sm:bottom-6 left-4 sm:left-6 bg-gradient-to-r ${course.badgeColor} text-white px-3 sm:px-4 py-1 sm:py-2 rounded-full flex items-center text-sm sm:text-base`}
                           initial={{ opacity: 0, y: 20 }}
                           animate={{ opacity: 1, y: 0 }}
                           transition={{ delay: 0.6 }}
                           whileHover={{ scale: 1.05 }}
                         >
-                          <Award className="w-5 h-5 mr-2" />
+                          <Award className="w-4 sm:w-5 h-4 sm:h-5 mr-2" />
                           <span>{course.badge}</span>
                         </motion.div>
                       </div>
                       
                       {/* Course Content with scrollable features */}
-                      <div className="lg:w-1/2 p-8 lg:p-12 flex flex-col h-full">
-                        <div className="flex-grow overflow-y-auto"> {/* Make features scrollable */}
+                      <div className="w-full lg:w-1/2 p-6 sm:p-8 lg:p-12 flex flex-col items-center lg:items-start text-center lg:text-left overflow-y-auto">
+                        <div className="w-full max-w-md sm:max-w-lg lg:max-w-none">
                           <motion.h3 
-                            className="text-3xl lg:text-4xl font-bold text-gray-800 mb-4"
+                            className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-800 mb-4"
                             initial={{ opacity: 0 }}
                             animate={{ opacity: 1 }}
                             transition={{ delay: 0.2 }}
@@ -290,7 +289,7 @@ const CourseSlider = () => {
                           </motion.h3>
                           
                           <motion.p
-                            className="text-gray-600 text-lg mb-6"
+                            className="text-gray-600 text-base sm:text-lg mb-6"
                             initial={{ opacity: 0 }}
                             animate={{ opacity: 1 }}
                             transition={{ delay: 0.4 }}
@@ -300,17 +299,19 @@ const CourseSlider = () => {
                           
                           <div className="mb-8">
                             <motion.div 
-                              className="flex items-center mb-4"
+                              className="flex items-center justify-center lg:justify-start mb-4"
                               initial={{ opacity: 0 }}
                               animate={{ opacity: 1 }}
                               transition={{ delay: 0.6 }}
                             >
-                              <Zap className="w-5 h-5 text-yellow-500 mr-2" />
-                              <span className="font-medium text-gray-800">Key Features:</span>
+                              <Zap className="w-4 sm:w-5 h-4 sm:h-5 text-yellow-500 mr-2" />
+                              <span className="font-medium text-gray-800 text-sm sm:text-base">
+                                Key Features:
+                              </span>
                             </motion.div>
                             
                             <motion.ul 
-                              className="space-y-4 pr-2" /* Added padding for scrollbar */
+                              className="space-y-4 pr-2"
                               initial={{ opacity: 0 }}
                               animate={{ opacity: 1 }}
                               transition={{ delay: 0.8 }}
@@ -329,9 +330,11 @@ const CourseSlider = () => {
                                       {feature.icon}
                                     </span>
                                     <div>
-                                      <div className="font-medium text-gray-800">{feature.text}</div>
+                                      <div className="font-medium text-gray-800 text-sm sm:text-base">
+                                        {feature.text}
+                                      </div>
                                       <motion.p 
-                                        className="text-gray-600 mt-1 text-sm"
+                                        className="text-gray-600 mt-1 text-xs sm:text-sm"
                                         initial={{ opacity: 0, height: 0 }}
                                         animate={{ opacity: 1, height: 'auto' }}
                                         transition={{ delay: 0.3 + i * 0.1 }}
@@ -347,12 +350,12 @@ const CourseSlider = () => {
                         </div>
                         
                         {/* Fixed position for button at bottom */}
-                        <div className="mt-auto pt-6">
+                        <div className="mt-auto pt-6 w-full max-w-md sm:max-w-lg lg:max-w-none">
                           <motion.a
                             href={course.whatsappLink}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="block w-full text-center bg-gradient-to-r from-green-500 to-green-600 text-white py-4 px-6 rounded-xl font-medium hover:shadow-lg transition-all group relative overflow-hidden"
+                            className="block w-full text-center bg-gradient-to-r from-green-500 to-green-600 text-white py-3 sm:py-4 px-6 rounded-xl font-medium hover:shadow-lg transition-all group relative overflow-hidden"
                             whileHover={{ 
                               scale: 1.02,
                               boxShadow: "0 10px 25px -5px rgba(25, 195, 125, 0.4)"
@@ -363,7 +366,7 @@ const CourseSlider = () => {
                             transition={{ delay: 1 }}
                           >
                             <span className="relative z-10 flex items-center justify-center">
-                              <MessageCircle className="w-5 h-5 mr-2" />
+                              <MessageCircle className="w-4 sm:w-5 h-4 sm:h-5 mr-2" />
                               Enquire on WhatsApp
                             </span>
                             <motion.span 
@@ -374,15 +377,7 @@ const CourseSlider = () => {
                             />
                           </motion.a>
                           
-                          <motion.div 
-                            className="flex items-center justify-center text-sm text-gray-500 mt-3"
-                            initial={{ opacity: 0 }}
-                            animate={{ opacity: 1 }}
-                            transition={{ delay: 1.2 }}
-                          >
-                            <Clock className="w-4 h-4 mr-1" />
-                            <span>Next batch starting in 3 days</span>
-                          </motion.div>
+                        
                         </div>
                       </div>
                     </div>
@@ -395,7 +390,7 @@ const CourseSlider = () => {
 
         {/* Dots Indicator */}
         <motion.div 
-          className="flex justify-center mt-12 space-x-2"
+          className="flex justify-center mt-8 sm:mt-12 space-x-2"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1.2 }}
