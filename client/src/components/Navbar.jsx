@@ -51,6 +51,16 @@ const Navbar = () => {
             </a>
             <div className="h-6 w-px bg-gray-300/50"></div>
             <a
+              href="/about"
+              className="relative text-gray-800 font-semibold text-lg transition-all duration-400 group hover:text-red-600 px-4 py-2 rounded-full overflow-hidden"
+            >
+              <span className="relative z-10 transition-all duration-400 group-hover:text-shadow-[0_0_8px_rgba(220,38,38,0.8)] group-hover:tracking-wide">
+             About Us
+              </span>
+              <span className="absolute inset-0 bg-red-600/20 scale-x-0 group-hover:scale-x-100 transition-transform duration-400 origin-left rounded-full"></span>
+            </a>
+            <div className="h-6 w-px bg-gray-300/50"></div>
+            <a
               href="/contact"
               className="relative text-gray-800 font-semibold text-lg transition-all duration-400 group hover:text-red-600 px-4 py-2 rounded-full overflow-hidden"
             >
@@ -107,6 +117,13 @@ const Navbar = () => {
             className="block px-4 py-2 text-gray-800 hover:text-red-600 hover:bg-gray-200/60 rounded-lg font-semibold text-lg transition-all duration-400 hover:scale-105 relative overflow-hidden group"
           >
             Courses
+            <span className="absolute inset-0 bg-red-600/20 scale-0 group-hover:scale-100 transition-transform duration-300 rounded-lg origin-center"></span>
+          </a>
+           <a
+            href="/about"
+            className="block px-4 py-2 text-gray-800 hover:text-red-600 hover:bg-gray-200/60 rounded-lg font-semibold text-lg transition-all duration-400 hover:scale-105 relative overflow-hidden group"
+          >
+            About Us
             <span className="absolute inset-0 bg-red-600/20 scale-0 group-hover:scale-100 transition-transform duration-300 rounded-lg origin-center"></span>
           </a>
           <a
