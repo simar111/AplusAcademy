@@ -174,24 +174,38 @@ const WhyChooseUsAndTestimonials = () => {
   
   const testimonials = [
     {
-      name: "Sarah Johnson",
+      name: "Nitin Chhimpa",
       role: "PTE Academic Student",
       score: "Scored 89 Overall",
-      quote: "The AI-powered feedback helped me identify my weak areas and improve my speaking score from 65 to 89 in just 3 weeks!",
-      image: "/images/testimonial-1.jpg",
+      quote: "I had taken 7 one-on-one sessions with Arzoo Ma'am for the Speaking and Writing sections, and the improvement was clearly visible. She focused on my weak areas with precision. I went from scoring mid-50s to a confident 74 overall. The way she breaks down complex tasks is just brilliant",
+      image: "/images/Nitin.jpg",
     },
     {
-      name: "Michael Chen",
+      name: "Mukund ",
       role: "IELTS Student",
       score: "Band 8.5 Overall",
-      quote: "The ex-examiner insights were invaluable. I improved my writing from Band 6.5 to 7.5 with their personalized feedback.",
-      image: "/images/testimonial-2.jpg",
+      quote: "Big thanks to Anshul Sir! His grammar workshops and one-on-one reading strategies helped me understand where I was going wrong. After 5 personalized sessions, I could see my consistency improving. The mock tests felt very close to the real exam format",
+      image: "/images/Mukund.jpg",
     },
     {
-      name: "Priya Patel",
-      role: "NAATI CCL Student",
+      name: "Pavni",
+      role: "IELTS Student",
       score: "5-Point Bonus Achieved",
-      quote: "The bilingual mentor support made all the difference. I passed my NAATI CCL on the first attempt thanks to their guidance.",
+      quote: "Ayan Sir was my go-to mentor during my time at APlus Academy. I took 6 private sessions focusing on the listening section. His tips about note-taking and managing time were extremely useful. Overall a great learning experience. Just wish the practice portal was available on mobile too",
+      image: "/images/Pavni.jpg",
+    },
+    {
+      name: "Simar",
+      role: "PTE Student",
+      score: "5-Point Bonus Achieved",
+      quote: "I joined APlus Academy after a friend's recommendation and it turned out to be a game-changer. I had 7 one-to-one classes with both Arzoo Ma'am and Anshul Sir. They focused on building my fluency and writing structure. The environment is super friendly, and the support is always available",
+      image: "/images/Simar.jpg",
+    },
+    {
+      name: "Jashan",
+      role: "PTE Student",
+      score: "5-Point Bonus Achieved",
+      quote: "The structured one-on-one guidance from Ayan Sir and Anshul Sir helped me overcome my hesitation in the Speaking module. I attended 6 sessions and each one was packed with actionable feedback. The course material is exactly what you need for PTE – no fluff",
       image: "/images/testimonial-3.jpg",
     }
   ];
@@ -504,123 +518,225 @@ const WhyChooseUsAndTestimonials = () => {
     </div>
 
       {/* Testimonials Section */}
-     <section className="relative py-16 md:py-24 overflow-hidden">
-      {/* Background gradient */}
-      <div className="absolute inset-0 bg-gradient-to-br from-red-50 to-white z-0" />
+     <section className="relative py-16 md:py-28 overflow-hidden bg-gradient-to-br from-white to-red-50">
+  {/* Animated gradient background */}
+  <div className="absolute inset-0 overflow-hidden">
+    <motion.div 
+      className="absolute inset-0 bg-gradient-to-br from-white to-red-50"
+      animate={{
+        backgroundPosition: ['0% 0%', '100% 100%']
+      }}
+      transition={{
+        duration: 15,
+        repeat: Infinity,
+        repeatType: "reverse",
+        ease: "linear"
+      }}
+    />
+  </div>
+  
+  {/* Floating particles with different colors */}
+  <div className="absolute inset-0 z-0 overflow-hidden">
+    {[...Array(20)].map((_, i) => {
+      const colors = ['bg-red-600/10', 'bg-red-400/15', 'bg-red-800/5'];
+      const color = colors[Math.floor(Math.random() * colors.length)];
+      const size = Math.random() * 10 + 5;
       
-      {/* Floating particles */}
-      <div className="absolute inset-0 z-0 overflow-hidden">
-        {[...Array(12)].map((_, i) => (
-          <motion.div
-            key={i}
-            className="absolute bg-red-600/10 rounded-full"
-            initial={{
-              width: `${Math.random() * 8 + 4}px`,
-              height: `${Math.random() * 8 + 4}px`,
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-              opacity: 0
-            }}
-            animate={{
-              opacity: [0, 0.6, 0],
-              y: [`${Math.random() * 100 - 50}px`, `${Math.random() * 100 - 50}px`]
-            }}
-            transition={{
-              duration: Math.random() * 10 + 10,
-              repeat: Infinity,
-              repeatType: "reverse",
-              delay: Math.random() * 5
-            }}
-          />
-        ))}
-      </div>
-
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        {/* Section header with animation */}
+      return (
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="text-center mb-12 md:mb-16"
+          key={i}
+          className={`absolute ${color} rounded-full`}
+          initial={{
+            width: `${size}px`,
+            height: `${size}px`,
+            left: `${Math.random() * 100}%`,
+            top: `${Math.random() * 100}%`,
+            opacity: 0
+          }}
+          animate={{
+            opacity: [0, 0.8, 0],
+            x: `${Math.random() * 100 - 50}px`,
+            y: `${Math.random() * 100 - 50}px`
+          }}
+          transition={{
+            duration: Math.random() * 15 + 15,
+            repeat: Infinity,
+            repeatType: "reverse",
+            delay: Math.random() * 10
+          }}
+        />
+      );
+    })}
+  </div>
+
+  {/* Animated grid pattern */}
+  <div className="absolute inset-0 z-0 opacity-10">
+    <div className="absolute inset-0 bg-grid-pattern bg-[length:40px_40px]" />
+  </div>
+
+  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    {/* Section header with enhanced animation */}
+    <motion.div
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-100px" }}
+      transition={{ duration: 0.8, ease: "backOut" }}
+      className="text-center mb-16 md:mb-20"
+    >
+      <motion.span 
+        className="inline-block bg-gradient-to-r from-red-600/10 to-red-400/10 text-red-600 text-sm font-medium px-4 py-1.5 rounded-full mb-4 shadow-sm"
+        initial={{ scale: 0.9 }}
+        whileInView={{ scale: 1 }}
+        transition={{ delay: 0.2 }}
+      >
+        Success Stories
+      </motion.span>
+      <motion.h2 
+        className="text-4xl sm:text-5xl md:text-6xl font-bold text-gray-900 mb-4"
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        transition={{ delay: 0.3 }}
+      >
+        What Our <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-600 to-red-400">Students</span> Say
+      </motion.h2>
+      <motion.div 
+        className="w-24 h-1.5 bg-gradient-to-r from-red-600 to-red-400 mx-auto rounded-full"
+        initial={{ width: 0 }}
+        whileInView={{ width: "6rem" }}
+        transition={{ delay: 0.4, duration: 0.8 }}
+      />
+    </motion.div>
+
+    {/* Enhanced testimonials carousel */}
+    <div className="relative h-[450px] md:h-[500px]">
+      {testimonials.map((testimonial, index) => (
+        <motion.div
+          key={index}
+          className={`absolute inset-0 flex flex-col md:flex-row items-center gap-8 md:gap-16 px-4 ${
+            index === currentTestimonial ? 'z-10' : 'z-0'
+          }`}
+          initial={{ 
+            opacity: 0, 
+            x: index > currentTestimonial ? 150 : -150,
+            scale: index === currentTestimonial ? 1 : 0.9
+          }}
+          animate={{ 
+            opacity: index === currentTestimonial ? 1 : 0,
+            x: index === currentTestimonial ? 0 : (index > currentTestimonial ? 150 : -150),
+            scale: index === currentTestimonial ? 1 : 0.95
+          }}
+          transition={{ 
+            duration: 0.7, 
+            ease: [0.16, 1, 0.3, 1],
+            scale: { duration: 0.5 }
+          }}
         >
-          <span className="inline-block bg-red-600/10 text-red-600 text-sm font-medium px-4 py-1 rounded-full mb-4">
-            Success Stories
-          </span>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-800 mb-4">
-            What Our <span className="text-red-600">Students</span> Say
-          </h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-red-600 to-red-400 mx-auto rounded-full" />
-        </motion.div>
-
-        {/* Testimonials carousel */}
-        <div className="relative h-[400px] md:h-[450px]">
-          {testimonials.map((testimonial, index) => (
-            <motion.div
-              key={index}
-              className={`absolute inset-0 flex flex-col md:flex-row items-center gap-8 md:gap-12 ${
-                index === currentTestimonial ? 'z-10' : 'z-0'
-              }`}
-              initial={{ opacity: 0, x: index > currentTestimonial ? 100 : -100 }}
-              animate={{ 
-                opacity: index === currentTestimonial ? 1 : 0,
-                x: index === currentTestimonial ? 0 : (index > currentTestimonial ? 100 : -100)
+          {/* Student image with enhanced effects */}
+          <div className="w-40 h-40 md:w-56 md:h-56 mx-auto md:mx-0 relative group">
+            <motion.div 
+              className="absolute inset-0 bg-gradient-to-br from-red-600 to-red-400 rounded-full blur-lg opacity-30 group-hover:opacity-50 transition-opacity duration-300"
+              initial={{ rotate: 0 }}
+              animate={{ rotate: 360 }}
+              transition={{ 
+                duration: 20,
+                repeat: Infinity,
+                ease: "linear"
               }}
-              transition={{ duration: 0.6, ease: "easeInOut" }}
+            />
+            <motion.div 
+              className="absolute inset-0 rounded-full border-4 border-white shadow-2xl transition-all duration-300 group-hover:shadow-red-200/50"
+              whileHover={{ scale: 1.03 }}
             >
-              {/* Student image */}
-              <div className="w-32 h-32 md:w-48 md:h-48 mx-auto md:mx-0 relative">
-                <div className="absolute inset-0 bg-gradient-to-br from-red-600 to-red-400 rounded-full blur-md opacity-30" />
-                <img 
-                  src={testimonial.image} 
-                  alt={testimonial.name}
-                  className="w-full h-full object-cover rounded-full border-4 border-white shadow-lg relative z-10"
-                />
-                <div className="absolute -bottom-2 -right-2 bg-white rounded-full p-2 shadow-md z-20">
-                  <div className="bg-red-600 text-white text-xs font-bold px-2 py-1 rounded-full">
-                    {testimonial.score}
-                  </div>
-                </div>
-              </div>
-
-              {/* Testimonial content */}
-              <div className="flex-1 bg-white/95 backdrop-blur-sm rounded-2xl p-6 md:p-8 shadow-lg max-w-2xl mx-auto">
-                <svg 
-                  className="w-8 h-8 text-red-400 mb-4" 
-                  fill="currentColor" 
-                  viewBox="0 0 24 24"
-                >
-                  <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
-                </svg>
-                <p className="text-gray-600 text-lg md:text-xl mb-6">
-                  "{testimonial.quote}"
-                </p>
-                <div>
-                  <h4 className="text-gray-800 font-bold text-lg">{testimonial.name}</h4>
-                  <p className="text-gray-500 text-sm">{testimonial.role}</p>
-                </div>
+              <img 
+                src={testimonial.image} 
+                alt={testimonial.name}
+                className="w-full h-full object-cover rounded-full relative z-10"
+              />
+            </motion.div>
+            <motion.div 
+              className="absolute -bottom-3 -right-3 bg-white rounded-full p-2 shadow-lg z-20 group-hover:scale-110 transition-transform duration-300"
+              whileHover={{ rotate: [0, 10, -10, 0] }}
+              transition={{ duration: 0.5 }}
+            >
+              <div className="bg-gradient-to-r from-red-600 to-red-400 text-white text-sm font-bold px-3 py-1 rounded-full shadow-sm">
+                {testimonial.score}
               </div>
             </motion.div>
-          ))}
-        </div>
+          </div>
 
-        {/* Navigation dots */}
-        <div className="flex justify-center mt-8 space-x-3">
-          {testimonials.map((_, index) => (
-            <button
-              key={index}
-              onClick={() => setCurrentTestimonial(index)}
-              className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                index === currentTestimonial 
-                  ? 'bg-gradient-to-r from-red-600 to-red-400 scale-125' 
-                  : 'bg-gray-300'
-              }`}
-              aria-label={`View testimonial ${index + 1}`}
+          {/* Testimonial content with enhanced design */}
+          <motion.div 
+            className="flex-1 bg-white/90 backdrop-blur-md rounded-3xl p-8 md:p-10 shadow-xl max-w-2xl mx-auto border border-white/20"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.3 }}
+            whileHover={{ y: -5 }}
+          >
+            <svg 
+              className="w-10 h-10 text-red-400 mb-6 opacity-90" 
+              fill="currentColor" 
+              viewBox="0 0 24 24"
+            >
+              <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
+            </svg>
+            <motion.p 
+              className="text-gray-700 text-lg md:text-xl mb-8 leading-relaxed"
+              initial={{ y: 10 }}
+              animate={{ y: 0 }}
+              transition={{ delay: 0.4 }}
+            >
+              "{testimonial.quote}"
+            </motion.p>
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.5 }}
+            >
+              <h4 className="text-gray-900 font-bold text-xl">{testimonial.name}</h4>
+              <p className="text-gray-500 text-sm mt-1">{testimonial.role}</p>
+            </motion.div>
+          </motion.div>
+        </motion.div>
+      ))}
+    </div>
+
+    {/* Enhanced navigation with animation */}
+    <motion.div 
+      className="flex justify-center mt-12 space-x-4"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ delay: 0.6 }}
+    >
+      {testimonials.map((_, index) => (
+        <motion.button
+          key={index}
+          onClick={() => setCurrentTestimonial(index)}
+          className={`relative w-12 h-2 rounded-full transition-all duration-300 ${
+            index === currentTestimonial 
+              ? 'bg-gradient-to-r from-red-600 to-red-400' 
+              : 'bg-gray-200 hover:bg-gray-300'
+          }`}
+          aria-label={`View testimonial ${index + 1}`}
+          whileHover={{ scale: 1.1 }}
+          whileTap={{ scale: 0.95 }}
+        >
+          {index === currentTestimonial && (
+            <motion.span 
+              className="absolute inset-0 bg-white/30 rounded-full"
+              initial={{ scale: 0 }}
+              animate={{ scale: 1 }}
+              transition={{ duration: 0.5 }}
             />
-          ))}
-        </div>
-      </div>
-    </section>
+          )}
+        </motion.button>
+      ))}
+    </motion.div>
 
+    {/* Decorative elements */}
+    <div className="absolute -bottom-20 -left-20 w-40 h-40 rounded-full bg-red-400/10 blur-3xl -z-10" />
+    <div className="absolute -top-10 -right-10 w-60 h-60 rounded-full bg-red-600/5 blur-3xl -z-10" />
+  </div>
+</section>
       {/* Custom Animation Keyframes */}
       <style>
         {`
