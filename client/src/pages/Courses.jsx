@@ -42,7 +42,7 @@ const Courses = () => {
   return (
     <section className="relative bg-gray-50 overflow-hidden">
       {/* Hero Section */}
-      <div className="relative min-h-[80vh] flex items-center justify-center text-center overflow-hidden bg-white">
+      <div className="relative min-h-[80vh] flex items-center justify-center text-center overflow-hidden bg-white top-10">
         {/* Animated Background with Floating Shapes */}
         <div className="absolute inset-0 overflow-hidden">
           {[...Array(15)].map((_, i) => (

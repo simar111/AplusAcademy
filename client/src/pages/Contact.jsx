@@ -63,47 +63,210 @@ const ContactUs = () => {
   return (
     <section className="relative bg-gray-50 overflow-hidden">
       {/* Hero Section with Red Gradient */}
-      <div className="relative h-[70vh] flex items-center justify-center text-center">
-        <div className="absolute inset-0 bg-gradient-to-br from-red-900/80 via-red-800/70 to-red-900/80 z-10"></div>
-        <img
-          src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
-          alt="Students learning"
-          className="absolute inset-0 w-full h-full object-cover"
-        />
-        <div className="relative z-20 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h1 className={`text-5xl sm:text-6xl lg:text-7xl font-extrabold text-white mb-6 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-            Let's <span className="text-red-300">Connect</span> at A+ Academy
-          </h1>
-          <p className={`text-xl sm:text-2xl text-gray-300 mb-8 transition-all duration-1000 delay-200 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-            Your pathway to academic excellence starts with a conversation
-          </p>
-          <a
-            href="#contact-form"
-            className={`inline-block bg-gradient-to-r from-red-600 to-red-700 text-white font-semibold text-lg px-10 py-4 rounded-full shadow-lg transition-all duration-500 hover:scale-105 hover:shadow-[0_0_30px_rgba(220,38,38,0.7)] ${isVisible ? 'opacity-100' : 'opacity-0'}`}
-          >
-            Get in Touch
-          </a>
-        </div>
-        
-        {/* Animated floating elements */}
-        <div className="absolute inset-0 z-10 overflow-hidden">
-          {[...Array(15)].map((_, i) => (
-            <div
-              key={i}
-              className="absolute rounded-full animate-float"
-              style={{
-                background: `rgba(220, 38, 38, ${Math.random() * 0.2})`,
-                width: `${Math.random() * 8 + 4}px`,
-                height: `${Math.random() * 8 + 4}px`,
-                left: `${Math.random() * 100}%`,
-                top: `${Math.random() * 100}%`,
-                animationDelay: `${Math.random() * 5}s`,
-                animationDuration: `${Math.random() * 10 + 10}s`
-              }}
-            />
-          ))}
-        </div>
+     <div className="relative h-[90vh] flex items-center justify-center text-center overflow-hidden top-16">
+  {/* Background Image with Parallax Effect */}
+  <div className="absolute inset-0 z-0">
+    <img
+      src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
+      alt="Students learning"
+      className="w-full h-full object-cover transform transition-transform duration-1000 ease-out animate-parallax"
+    />
+  </div>
+
+  {/* Gradient Overlay with Animated Pulse */}
+  <div className="absolute inset-0 bg-gradient-to-br from-red-900/70 via-red-800/60 to-red-900/70 z-10 animate-gradient-pulse"></div>
+
+  {/* Subtle Noise Texture Overlay */}
+  <div
+    className="absolute inset-0 z-10"
+    style={{
+      backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.1'/%3E%3C/svg%3E")`,
+      backgroundRepeat: 'repeat',
+      opacity: 0.15,
+    }}
+  ></div>
+
+  {/* Content Container */}
+  <div className="relative z-20 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+    {/* Animated Heading with Staggered Text Reveal */}
+    <h1
+      className={`text-5xl sm:text-6xl lg:text-8xl font-extrabold text-white mb-6 transition-all duration-1000 ease-out ${
+        isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+      }`}
+    >
+      <span className="inline-block animate-stagger-reveal delay-0">Let’s</span>{' '}
+      <span className="inline-block text-red-300 animate-stagger-reveal delay-200">Connect</span>{' '}
+      <span className="inline-block animate-stagger-reveal delay-400">at</span>{' '}
+      <span className="inline-block animate-stagger-reveal delay-600">A+</span>{' '}
+      <span className="inline-block animate-stagger-reveal delay-800">Academy</span>
+      <div className="relative mt-4">
+        <span className="absolute left-1/2 transform -translate-x-1/2 bottom-0 w-48 h-1 bg-gradient-to-r from-transparent via-red-400 to-transparent animate-[underline_2s_ease-in-out_infinite]"></span>
       </div>
+    </h1>
+
+    {/* Subheading with Fade-In Effect */}
+    <p
+      className={`text-xl sm:text-2xl lg:text-3xl text-gray-200 mb-10 transition-all duration-1000 delay-1000 ease-out font-light tracking-wide leading-relaxed ${
+        isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+      }`}
+    >
+      Your pathway to academic excellence starts with a meaningful conversation.
+    </p>
+
+    {/* Call to Action Button with Hover Effect */}
+    <a
+      href="#contact-form"
+      className={`inline-block relative bg-gradient-to-r from-red-600 to-red-700 text-white font-semibold text-lg px-12 py-5 rounded-full shadow-2xl transition-all duration-500 hover:scale-110 hover:shadow-[0_0_40px_rgba(220,38,38,0.8)] group ${
+        isVisible ? 'opacity-100' : 'opacity-0' 
+      }`}
+    >
+      Get in Touch
+      <span className="absolute inset-0 rounded-full border-2 border-red-400/50 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></span>
+      <span className="absolute inset-0 bg-gradient-to-r from-red-700 to-red-800 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-full blur-md"></span>
+    </a>
+
+    {/* Social Media Quick Links (Floating Below CTA) */}
+    <div
+      className={`flex justify-center space-x-6 mt-10 transition-all duration-1000 delay-1200 ${
+        isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+      }`}
+    >
+      {[
+        { platform: 'Facebook', icon: 'M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z', url: 'https://facebook.com/aplusacademy' },
+        { platform: 'Twitter', icon: 'M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z', url: 'https://twitter.com/aplusacademy' },
+        { platform: 'Instagram', icon: 'M16 0H8a8 8 0 00-8 8v8a8 8 0 008 8h8a8 8 0 008-8V8a8 8 0 00-8-8zm2 16a2 2 0 01-2 2H8a2 2 0 01-2-2V8a2 2 0 012-2h8a2 2 0 012 2v8zm-6-8a4 4 0 100 8 4 4 0 000-8zm0 6a2 2 0 110-4 2 2 0 010 4zm4-6a1 1 0 100-2 1 1 0 000 2z', url: 'https://instagram.com/aplusacademy' },
+      ].map((social, index) => (
+        <a
+          key={index}
+          href={social.url}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="w-12 h-12 bg-white/10 backdrop-blur-md rounded-full flex items-center justify-center text-gray-200 hover:text-white hover:bg-red-600 transform transition-all duration-500 hover:scale-110 hover:shadow-[0_0_15px_rgba(220,38,38,0.7)] hover:rotate-6"
+        >
+          <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d={social.icon} />
+          </svg>
+        </a>
+      ))}
+    </div>
+  </div>
+
+  {/* Animated Floating Elements with Enhanced Effects */}
+  <div className="absolute inset-0 z-10 overflow-hidden">
+    {[...Array(20)].map((_, i) => (
+      <div
+        key={i}
+        className="absolute rounded-full animate-float-glow"
+        style={{
+          background: `radial-gradient(circle, rgba(220, 38, 38, ${Math.random() * 0.3 + 0.1}), transparent)`,
+          width: `${Math.random() * 10 + 5}px`,
+          height: `${Math.random() * 10 + 5}px`,
+          left: `${Math.random() * 100}%`,
+          top: `${Math.random() * 100}%`,
+          animationDelay: `${Math.random() * 5}s`,
+          animationDuration: `${Math.random() * 12 + 8}s`,
+          boxShadow: `0 0 ${Math.random() * 10 + 5}px rgba(220, 38, 38, 0.5)`,
+        }}
+      />
+    ))}
+  </div>
+
+  {/* Interactive Floating Cards with Info Snippets */}
+  <div className="absolute inset-0 z-15 pointer-events-none">
+    {[
+      { text: '98% Success Rate', left: '10%', top: '20%', delay: '0s' },
+      { text: '5,000+ Students', left: '80%', top: '15%', delay: '1s' },
+      { text: 'Expert Tutors', left: '15%', top: '70%', delay: '2s' },
+    ].map((snippet, index) => (
+      <div
+        key={index}
+        className="absolute bg-white/20 backdrop-blur-lg rounded-xl p-4 text-white text-sm font-medium animate-float-card"
+        style={{
+          left: snippet.left,
+          top: snippet.top,
+          animationDelay: snippet.delay,
+          animationDuration: '15s',
+        }}
+      >
+        <span className="relative z-10">{snippet.text}</span>
+        <div className="absolute inset-0 bg-gradient-to-r from-red-600/20 to-red-700/20 rounded-xl blur-sm animate-pulse"></div>
+      </div>
+    ))}
+  </div>
+
+  {/* Scroll Indicator at Bottom */}
+  <div
+    className={`absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20 transition-all duration-1000 ${
+      isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+    }`}
+  >
+    <div className="flex flex-col items-center">
+      <span className="text-gray-200 text-sm mb-2 animate-pulse">Scroll to Explore</span>
+      <div className="w-6 h-12 border-2 border-red-400/50 rounded-full flex justify-center p-1">
+        <div className="w-2 h-4 bg-red-400 rounded-full animate-scroll-indicator"></div>
+      </div>
+    </div>
+  </div>
+
+  {/* Custom Styles and Animations */}
+  <style>
+    {`
+      @keyframes parallax {
+        0% { transform: scale(1.1) translateY(0); }
+        100% { transform: scale(1.1) translateY(-30px); }
+      }
+      @keyframes gradient-pulse {
+        0% { opacity: 0.7; }
+        50% { opacity: 0.9; }
+        100% { opacity: 0.7; }
+      }
+      @keyframes stagger-reveal {
+        0% { opacity: 0; transform: translateY(20px); }
+        100% { opacity: 1; transform: translateY(0); }
+      }
+      @keyframes float-glow {
+        0% { transform: translateY(0) translateX(0); opacity: 0.7; box-shadow: 0 0 5px rgba(220, 38, 38, 0.5); }
+        50% { transform: translateY(-20px) translateX(10px); opacity: 1; box-shadow: 0 0 15px rgba(220, 38, 38, 0.8); }
+        100% { transform: translateY(0) translateX(0); opacity: 0.7; box-shadow: 0 0 5px rgba(220, 38, 38, 0.5); }
+      }
+      @keyframes float-card {
+        0% { transform: translateY(0) rotate(0deg); opacity: 0; }
+        10% { opacity: 1; }
+        50% { transform: translateY(-30px) rotate(5deg); opacity: 0.9; }
+        90% { opacity: 1; }
+        100% { transform: translateY(0) rotate(0deg); opacity: 0; }
+      }
+      @keyframes scroll-indicator {
+        0% { transform: translateY(0); opacity: 1; }
+        50% { transform: translateY(10px); opacity: 0.5; }
+        100% { transform: translateY(0); opacity: 1; }
+      }
+      @keyframes underline {
+        0% { width: 0; }
+        50% { width: 100%; }
+        100% { width: 0; }
+      }
+      .animate-parallax {
+        animation: parallax 10s infinite alternate ease-in-out;
+      }
+      .animate-gradient-pulse {
+        animation: gradient-pulse 8s infinite ease-in-out;
+      }
+      .animate-stagger-reveal {
+        animation: stagger-reveal 0.8s ease-out forwards;
+      }
+      .animate-float-glow {
+        animation: float-glow 10s infinite ease-in-out;
+      }
+      .animate-float-card {
+        animation: float-card 15s infinite ease-in-out;
+      }
+      .animate-scroll-indicator {
+        animation: scroll-indicator 2s infinite ease-in-out;
+      }
+    `}
+  </style>
+</div>
 
       {/* Contact Information - Red & White Cards */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
