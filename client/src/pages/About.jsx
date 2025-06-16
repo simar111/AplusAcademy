@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { motion, useAnimation } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { Award, BookOpen, Users, Clock, BarChart2, CheckCircle, Globe, Star, Zap } from 'react-feather';
+import PTEAchievements from '../components/Achive';
 
 const AboutUs = () => {
   const controls = useAnimation();
@@ -511,50 +512,196 @@ const AboutUs = () => {
 </section>
 
       {/* Introduction Section */}
-      <section className="relative py-24 bg-white z-10">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+       <section className="relative py-24 bg-white overflow-hidden">
+      {/* Floating background elements */}
+      {[...Array(12)].map((_, i) => (
+        <motion.div
+          key={i}
+          className={`absolute rounded-full ${i%3 === 0 ? 'bg-red-600/5' : i%3 === 1 ? 'bg-red-400/8' : 'bg-red-800/3'}`}
+          style={{
+            width: `${Math.random() * 20 + 10}px`,
+            height: `${Math.random() * 20 + 10}px`,
+            left: `${Math.random() * 100}%`,
+            top: `${Math.random() * 100}%`,
+          }}
+          animate={{
+            y: [0, (Math.random() * 100) - 50],
+            x: [0, (Math.random() * 60) - 30],
+            opacity: [0.2, 0.6, 0.2],
+            rotate: Math.random() * 360
+          }}
+          transition={{
+            duration: Math.random() * 20 + 20,
+            repeat: Infinity,
+            repeatType: "reverse",
+            ease: "easeInOut"
+          }}
+        />
+      ))}
+
+      {/* Grid pattern background */}
+      <div className="absolute inset-0 [mask-image:radial-gradient(ellipse_at_center,transparent_60%,white)] bg-[linear-gradient(to_right,#f0f0f0_1px,transparent_1px),linear-gradient(to_bottom,#f0f0f0_1px,transparent_1px)] bg-[size:50px_50px] opacity-10"></div>
+
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <motion.div 
+          className="bg-white/90 backdrop-blur-md rounded-3xl p-12 shadow-2xl border border-gray-200/30 relative overflow-hidden"
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+        >
+          {/* Animated gradient circles */}
           <motion.div 
-            className="bg-gradient-to-br from-white to-gray-50 rounded-3xl p-12 shadow-xl border border-gray-200/50 relative overflow-hidden"
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-          >
-            <div className="absolute -top-32 -right-32 w-64 h-64 bg-red-600/10 rounded-full blur-3xl"></div>
-            <div className="relative z-10">
-              <motion.h2 
-                className="text-3xl sm:text-4xl font-extrabold text-gray-800 mb-8 text-center"
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
-                viewport={{ once: true }}
+            className="absolute -top-32 -right-32 w-64 h-64 bg-gradient-to-br from-red-600/10 to-red-400/10 rounded-full blur-3xl"
+            animate={{
+              scale: [1, 1.1, 1],
+              opacity: [0.1, 0.2, 0.1]
+            }}
+            transition={{
+              duration: 12,
+              repeat: Infinity,
+              ease: "easeInOut"
+            }}
+          />
+          <motion.div 
+            className="absolute -bottom-32 -left-32 w-72 h-72 bg-gradient-to-br from-red-600/5 to-red-400/5 rounded-full blur-3xl"
+            animate={{
+              scale: [1, 1.05, 1],
+              opacity: [0.05, 0.15, 0.05]
+            }}
+            transition={{
+              duration: 15,
+              repeat: Infinity,
+              ease: "easeInOut",
+              delay: 3
+            }}
+          />
+
+          <div className="relative z-10">
+            {/* Animated header */}
+            <motion.div
+              className="text-center mb-12"
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ staggerChildren: 0.1 }}
+            >
+              <motion.span 
+                className="inline-block bg-gradient-to-r from-red-600/10 to-red-400/10 text-red-600 text-sm font-medium px-4 py-1.5 rounded-full mb-4 shadow-sm"
+                initial={{ y: -10 }}
+                whileInView={{ y: 0 }}
                 transition={{ delay: 0.2 }}
               >
-                <span className="bg-clip-text text-transparent bg-gradient-to-r from-red-600 to-red-500">Our Commitment</span> to Excellence
-              </motion.h2>
-              
-              <motion.div 
-                className="prose prose-lg text-gray-600 max-w-3xl mx-auto"
+                Our Philosophy
+              </motion.span>
+              <motion.h2 
+                className="text-4xl sm:text-5xl font-bold text-gray-900 mb-4"
                 initial={{ opacity: 0 }}
                 whileInView={{ opacity: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.4 }}
+                transition={{ delay: 0.3 }}
               >
-                <p className="text-xl leading-relaxed mb-6">
-                  At <strong>A+ PTE Academy</strong>, we are passionately committed to helping students achieve their <span className="text-red-600 font-semibold">dream PTE scores</span> through expert guidance, result-oriented strategies, and personalized attention.
-                </p>
-                
-                <p className="text-xl leading-relaxed mb-6">
-                  Founded with a vision to make <span className="font-semibold">quality PTE training accessible and effective</span>, we take immense pride in being the trusted choice for students aiming to study, work, or settle abroad. Our reputation is built on <span className="text-red-600 font-semibold">real results</span> and <span className="font-semibold">transformative learning experiences</span>.
-                </p>
-                
-                <p className="text-xl leading-relaxed">
-                  With our team of <span className="font-semibold">highly experienced trainers</span>, continuously updated material, and flexible online classes, we ensure every learner receives the <span className="text-red-600 font-semibold">precise support they need</span> — whether it's mastering time management, perfecting pronunciation, improving fluency, or overcoming test anxiety.
-                </p>
-              </motion.div>
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-600 to-red-500">Excellence</span> in PTE Training
+              </motion.h2>
+              <motion.div 
+                className="w-24 h-1.5 bg-gradient-to-r from-red-600 to-red-400 mx-auto rounded-full"
+                initial={{ width: 0 }}
+                whileInView={{ width: "6rem" }}
+                transition={{ delay: 0.4, duration: 0.8 }}
+              />
+            </motion.div>
+            
+            {/* Animated content blocks */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              {[
+                {
+                  title: "Proven Methodology",
+                  content: "Our research-backed teaching approach has helped thousands achieve their target scores.",
+                  icon: (
+                    <svg className="w-8 h-8 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                    </svg>
+                  )
+                },
+                {
+                  title: "Personalized Coaching",
+                  content: "Tailored feedback and one-on-one sessions to address your specific weaknesses.",
+                  icon: (
+                    <svg className="w-8 h-8 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+                    </svg>
+                  )
+                },
+                {
+                  title: "Cutting-Edge Resources",
+                  content: "Access to the latest practice materials and AI-powered analysis tools.",
+                  icon: (
+                    <svg className="w-8 h-8 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                    </svg>
+                  )
+                }
+              ].map((item, index) => (
+                <motion.div
+                  key={index}
+                  className="bg-white/80 backdrop-blur-sm p-6 rounded-xl border border-gray-200/50 shadow-md hover:shadow-lg transition-all duration-300"
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.2 + index * 0.1 }}
+                  whileHover={{ y: -5 }}
+                >
+                  <motion.div 
+                    className="w-16 h-16 bg-red-50 rounded-xl flex items-center justify-center mb-4"
+                    whileHover={{ rotate: 15, scale: 1.05 }}
+                  >
+                    {item.icon}
+                  </motion.div>
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">{item.title}</h3>
+                  <p className="text-gray-600">{item.content}</p>
+                </motion.div>
+              ))}
             </div>
-          </motion.div>
-        </div>
-      </section>
+
+            {/* Main commitment text */}
+            <motion.div 
+              className="mt-12 prose prose-lg text-gray-600 max-w-3xl mx-auto"
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.6 }}
+            >
+              <motion.p 
+                className="text-xl leading-relaxed mb-6"
+                initial={{ x: -20 }}
+                whileInView={{ x: 0 }}
+                transition={{ delay: 0.7 }}
+              >
+                At <strong className="text-red-600">A+ PTE Academy</strong>, we are passionately committed to transforming English proficiency into <span className="font-semibold">PTE success stories</span>. Our approach combines <span className="text-red-600 font-semibold">scientific methodology</span> with <span className="font-semibold">personalized attention</span> to unlock each student's full potential.
+              </motion.p>
+              
+              <motion.p 
+                className="text-xl leading-relaxed mb-6"
+                initial={{ x: 20 }}
+                whileInView={{ x: 0 }}
+                transition={{ delay: 0.8 }}
+              >
+                Founded by <span className="font-semibold">PTE perfect scorers</span>, our academy has become the <span className="text-red-600 font-semibold">trusted choice</span> for students worldwide. We take pride in our <span className="font-semibold">98% satisfaction rate</span> and the thousands of students who've achieved their immigration and academic goals through our programs.
+              </motion.p>
+              
+              <motion.p 
+                className="text-xl leading-relaxed"
+                initial={{ y: 20 }}
+                whileInView={{ y: 0 }}
+                transition={{ delay: 0.9 }}
+              >
+                With our team of <span className="font-semibold">certified trainers</span>, continuously updated curriculum, and <span className="text-red-600 font-semibold">cutting-edge technology</span>, we provide the precise support needed to master time management, pronunciation, fluency, and overcome test anxiety.
+              </motion.p>
+            </motion.div>
+          </div>
+        </motion.div>
+      </div>
+    </section>
 
       {/* Differentiator Section */}
       <section className="relative py-24 bg-gradient-to-br from-gray-100 to-white z-10">
@@ -612,67 +759,7 @@ const AboutUs = () => {
       </section>
 
       {/* Results Section */}
-      <section className="relative py-24 bg-white z-10">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div 
-            className="bg-gradient-to-br from-red-600 to-red-700 rounded-3xl p-12 text-white shadow-2xl relative overflow-hidden"
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-          >
-            <div className="absolute -top-32 -left-32 w-64 h-64 bg-white/10 rounded-full blur-3xl"></div>
-            <div className="absolute -bottom-32 -right-32 w-64 h-64 bg-white/10 rounded-full blur-3xl"></div>
-            <div className="relative z-10">
-              <motion.h2 
-                className="text-3xl sm:text-4xl font-extrabold mb-8 text-center"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.2 }}
-              >
-                Our Students' Success Speaks Volumes
-              </motion.h2>
-              
-              <motion.div 
-                className="grid grid-cols-2 md:grid-cols-4 gap-8"
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true }}
-                variants={containerVariants}
-              >
-                {[
-                  { value: "150+", label: "Students Trained" },
-                  { value: "98%", label: "Success Rate" },
-                  { value: "4.9★", label: "Average Rating" },
-                  { value: "15+", label: "Years Experience" }
-                ].map((stat, index) => (
-                  <motion.div
-                    key={index}
-                    className="bg-white/10 backdrop-blur-sm rounded-xl p-6 text-center border border-white/20"
-                    variants={itemVariants}
-                    whileHover={{ scale: 1.05 }}
-                  >
-                    <div className="text-4xl font-bold mb-2">{stat.value}</div>
-                    <div className="text-white/90 font-medium uppercase tracking-wider text-sm">{stat.label}</div>
-                  </motion.div>
-                ))}
-              </motion.div>
-              
-              <motion.p 
-                className="text-xl text-white/90 text-center mt-12 max-w-3xl mx-auto"
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.4 }}
-              >
-                Our students' remarkable achievements fuel our passion every single day. Their success stories are our proudest accomplishments.
-              </motion.p>
-            </div>
-          </motion.div>
-        </div>
-      </section>
-
+      <PTEAchievements />
       {/* CTA Section */}
       <section className="relative py-24 bg-gradient-to-br from-gray-50 to-white z-10">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">

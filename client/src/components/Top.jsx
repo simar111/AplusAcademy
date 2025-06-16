@@ -185,16 +185,16 @@ const TopRankers = () => {
               ]
             },
             {
-              name: "Muhammad Umair Sikander",
-              score: "74",
+              name: "Yashdeep",
+              score: "77",
               exam: "PTE Academic",
-              resultImage: "/images/umair.jpg",
+              resultImage: "/images/Yashdeep.jpg",
               testimonial: "Scored 86 with just 4 weeks of preparation",
               highlights: [
-                { skill: "Speaking", score: "70" },
-                { skill: "Writing", score: "76" },
-                { skill: "Reading", score: "90" },
-                { skill: "Listening", score: "67" }
+                { skill: "Speaking", score: "88" },
+                { skill: "Writing", score: "72" },
+                { skill: "Reading", score: "84" },
+                { skill: "Listening", score: "83" }
               ]
             }
           ].map((student, index) => (
