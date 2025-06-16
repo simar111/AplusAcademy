@@ -206,7 +206,7 @@ const WhyChooseUsAndTestimonials = () => {
       role: "PTE Student",
       score: "5-Point Bonus Achieved",
       quote: "The structured one-on-one guidance from Ayan Sir and Anshul Sir helped me overcome my hesitation in the Speaking module. I attended 6 sessions and each one was packed with actionable feedback. The course material is exactly what you need for PTE – no fluff",
-      image: "/images/testimonial-3.jpg",
+      image: "/images/Jashan.jpg",
     }
   ];
 
