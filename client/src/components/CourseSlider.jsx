@@ -50,11 +50,11 @@ const CourseSlider = () => {
           icon: <Edit3 className="w-5 h-5 text-red-500" />,
           description: "Receive detailed scoring and personalized feedback from PTE-certified instructors within 24 hours."
         },
-        { 
-          text: "Adaptive practice tests", 
-          icon: <BarChart2 className="w-5 h-5 text-red-500" />,
-          description: "Smart tests that adjust difficulty based on your performance to maximize learning efficiency."
-        }
+        // { 
+        //   text: "Adaptive practice tests", 
+        //   icon: <BarChart2 className="w-5 h-5 text-red-500" />,
+        //   description: "Smart tests that adjust difficulty based on your performance to maximize learning efficiency."
+        // }
       ],
       whatsappLink: "https://wa.me/1234567890?text=I'm%20interested%20in%20PTE%20Academic%20Pro",
       badge: "79+ Score Guarantee",
@@ -72,11 +72,11 @@ const CourseSlider = () => {
           icon: <BookOpenCheck className="w-5 h-5 text-red-500" />,
           description: "Comprehensive training covering Listening, Reading, Writing, and Speaking modules with expert strategies."
         },
-        { 
-          text: "Cambridge materials", 
-          icon: <Star className="w-5 h-5 text-red-500" />,
-          description: "Access to authentic Cambridge IELTS preparation materials and practice tests."
-        },
+        // { 
+        //   text: "Cambridge materials", 
+        //   icon: <Star className="w-5 h-5 text-red-500" />,
+        //   description: "Access to authentic Cambridge IELTS preparation materials and practice tests."
+        // },
         { 
           text: "1:1 speaking sessions", 
           icon: <Mic2 className="w-5 h-5 text-red-500" />,
@@ -94,11 +94,11 @@ const CourseSlider = () => {
       image: "/images/imagee2.png",
       icon: <Award className="w-7 h-7 text-white" />,
       features: [
-        { 
-          text: "Bilingual mentor support", 
-          icon: <Languages className="w-5 h-5 text-red-500" />,
-          description: "Guidance from certified bilingual mentors who understand the nuances of community languages."
-        },
+        // { 
+        //   text: "Bilingual mentor support", 
+        //   icon: <Languages className="w-5 h-5 text-red-500" />,
+        //   description: "Guidance from certified bilingual mentors who understand the nuances of community languages."
+        // },
         { 
           text: "Official test patterns", 
           icon: <Check className="w-5 h-5 text-red-500" />,
