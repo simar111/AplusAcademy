@@ -67,73 +67,73 @@ const PTEAchievements = () => {
     {
       name: "Priyanshi",
       score: "90",
-      resultImage: "./images/Priyanshi.png",
+      resultImage: "/images/Priyanshi.png",
       highlights: ["Speaking: 90", "Writing: 90", "Reading: 90", "Listening: 82"]
     },
     {
       name: "Muhammad Umair Sikander",
       score: "74",
-      resultImage: "./images/Umair.jpg",
+      resultImage: "/images/Umair.jpg",
       highlights: ["Speaking: 70", "Writing: 76", "Reading: 90", "Listening: 67"]
     },
     {
       name: "Anshpreet",
       score: "76",
-      resultImage: "./images/Ansh.png",
+      resultImage: "/images/Ansh.png",
       highlights: ["Speaking: 76", "Writing: 80", "Reading: 76", "Listening: 70"]
     },
     {
       name: "Gurbinder Singh Shubham",
       score: "83",
-      resultImage: "./images/Gurbinder.png",
+      resultImage: "/images/Gurbinder.png",
       highlights: ["Speaking: 83", "Writing: 76", "Reading: 90", "Listening: 83"]
     },
     {
       name: "Yashdeep",
       score: "77",
-      resultImage: "./images/Yashdeep.jpg",
+      resultImage: "/images/Yashdeep.jpg",
       highlights: ["Speaking: 88", "Writing: 72", "Reading: 84", "Listening: 83"]
     },
     {
       name: "Gursharan Singh",
       score: "67",
-      resultImage: "./images/Gursharan.jpg",
+      resultImage: "/images/Gursharan.jpg",
       highlights: ["Speaking: 64", "Writing: 79", "Reading: 67", "Listening: 66"]
     },
     {
       name: "Himanshu Malhotra",
       score: "65",
-      resultImage: "./images/Himanshu.jpg",
+      resultImage: "/images/Himanshu.jpg",
       highlights: ["Speaking: 64", "Writing: 65", "Reading: 68", "Listening: 66"]
     },
     {
       name: "Sajid Shahadat",
       score: "59",
-      resultImage: "./images/sajid.jpg",
+      resultImage: "/images/sajid.jpg",
       highlights: ["Speaking: 52", "Writing: 64", "Reading: 64", "Listening: 56"]
     },
     {
       name: "Munneb Tahir",
       score: "68",
-      resultImage: "./images/Munneb.jpg",
+      resultImage: "/images/Munneb.jpg",
       highlights: ["Speaking: 79", "Writing: 83", "Reading: 80", "Listening: 82"]
     },
     {
       name: "Palak",
       score: "56",
-      resultImage: "./images/Palak.jpg",
+      resultImage: "/images/Palak.jpg",
       highlights: ["Speaking: 57", "Writing: 52", "Reading: 67", "Listening: 54"]
     },
      {
       name:"Ayan Arora",
       score: "69",
-      resultImage: "./images/Ayan.jpg",
+      resultImage: "/images/Ayan.jpg",
       highlights: ["Speaking: 82", "Writing: 58", "Reading: 87", "Listening: 65"]
     },
     {
       name: "Dinesh Kumar",
       score: "62",
-      resultImage: "./images/dinesh.jpg",
+      resultImage: "/images/dinesh.jpg",
       highlights: ["Speaking: 64", "Writing: 65", "Reading: 69", "Listening: 59"]
     }
   ];

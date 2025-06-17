@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
+
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -105,36 +107,32 @@ const Navbar = () => {
         } rounded-b-lg`}
       >
         <div className="px-4 pt-3 pb-4 space-y-2 sm:px-6">
-          <a
-            href="/"
-            className="block px-4 py-2 text-gray-800 hover:text-red-600 hover:bg-gray-200/60 rounded-lg font-semibold text-lg transition-all duration-400 hover:scale-105 relative overflow-hidden group"
-          >
-            Home
-            <span className="absolute inset-0 bg-red-600/20 scale-0 group-hover:scale-100 transition-transform duration-300 rounded-lg origin-center"></span>
-          </a>
-          <a
-            href="/courses"
-            className="block px-4 py-2 text-gray-800 hover:text-red-600 hover:bg-gray-200/60 rounded-lg font-semibold text-lg transition-all duration-400 hover:scale-105 relative overflow-hidden group"
-          >
-            Courses
-            <span className="absolute inset-0 bg-red-600/20 scale-0 group-hover:scale-100 transition-transform duration-300 rounded-lg origin-center"></span>
-          </a>
-           <a
-            href="/about"
-            className="block px-4 py-2 text-gray-800 hover:text-red-600 hover:bg-gray-200/60 rounded-lg font-semibold text-lg transition-all duration-400 hover:scale-105 relative overflow-hidden group"
-          >
-            About Us
-            <span className="absolute inset-0 bg-red-600/20 scale-0 group-hover:scale-100 transition-transform duration-300 rounded-lg origin-center"></span>
-          </a>
-          <a
-            href="/contact"
-            className="block px-4 py-2 text-gray-800 hover:text-red-600 hover:bg-gray-200/60 rounded-lg font-semibold text-lg transition-all duration-400 hover:scale-105 relative overflow-hidden group"
-          >
-            Contact Us
-            <span className="absolute inset-0 bg-red-600/20 scale-0 group-hover:scale-100 transition-transform duration-300 rounded-lg origin-center"></span>
-          </a>
+         <Link
+    to="/courses"
+    className="block px-4 py-2 text-gray-800 hover:text-red-600 hover:bg-gray-200/60 rounded-lg font-semibold text-lg transition-all duration-400 hover:scale-105 relative overflow-hidden group"
+  >
+    Courses
+    <span className="absolute inset-0 bg-red-600/20 scale-0 group-hover:scale-100 transition-transform duration-300 rounded-lg origin-center"></span>
+  </Link>
+
+  <Link
+    to="/about"
+    className="block px-4 py-2 text-gray-800 hover:text-red-600 hover:bg-gray-200/60 rounded-lg font-semibold text-lg transition-all duration-400 hover:scale-105 relative overflow-hidden group"
+  >
+    About Us
+    <span className="absolute inset-0 bg-red-600/20 scale-0 group-hover:scale-100 transition-transform duration-300 rounded-lg origin-center"></span>
+  </Link>
+
+  <Link
+    to="/contact"
+    className="block px-4 py-2 text-gray-800 hover:text-red-600 hover:bg-gray-200/60 rounded-lg font-semibold text-lg transition-all duration-400 hover:scale-105 relative overflow-hidden group"
+  >
+    Contact Us
+    <span className="absolute inset-0 bg-red-600/20 scale-0 group-hover:scale-100 transition-transform duration-300 rounded-lg origin-center"></span>
+  </Link>
+</div>
         </div>
-      </div>
+      
     </nav>
   );
 };
