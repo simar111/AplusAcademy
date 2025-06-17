@@ -1,5 +1,6 @@
 import React, { useEffect, useState ,} from 'react';
 import { motion ,useAnimation} from 'framer-motion';
+import Testimonials from './Test';
 const WhyChooseUsAndTestimonials = () => {
   // const [isVisible, setIsVisible] = useState(false);
   const [currentTestimonial, setCurrentTestimonial] = useState(0);
@@ -518,9 +519,9 @@ const WhyChooseUsAndTestimonials = () => {
     </div>
 
       {/* Testimonials Section */}
-     <section className="relative py-16 md:py-28 overflow-hidden bg-gradient-to-br from-white to-red-50">
+     {/* <section className="relative py-16 md:py-28 overflow-hidden bg-gradient-to-br from-white to-red-50"> */}
   {/* Animated gradient background */}
-  <div className="absolute inset-0 overflow-hidden">
+  {/* <div className="absolute inset-0 overflow-hidden">
     <motion.div 
       className="absolute inset-0 bg-gradient-to-br from-white to-red-50"
       animate={{
@@ -532,17 +533,17 @@ const WhyChooseUsAndTestimonials = () => {
         repeatType: "reverse",
         ease: "linear"
       }}
-    />
-  </div>
+    /> */}
+  {/* </div> */}
   
   {/* Floating particles with different colors */}
-  <div className="absolute inset-0 z-0 overflow-hidden">
+  {/* <div className="absolute inset-0 z-0 overflow-hidden">
     {[...Array(20)].map((_, i) => {
       const colors = ['bg-red-600/10', 'bg-red-400/15', 'bg-red-800/5'];
       const color = colors[Math.floor(Math.random() * colors.length)];
       const size = Math.random() * 10 + 5;
-      
-      return (
+       */}
+      {/* return (
         <motion.div
           key={i}
           className={`absolute ${color} rounded-full`}
@@ -567,23 +568,23 @@ const WhyChooseUsAndTestimonials = () => {
         />
       );
     })}
-  </div>
+  </div> */}
 
   {/* Animated grid pattern */}
-  <div className="absolute inset-0 z-0 opacity-10">
+  {/* <div className="absolute inset-0 z-0 opacity-10">
     <div className="absolute inset-0 bg-grid-pattern bg-[length:40px_40px]" />
-  </div>
+  </div> */}
 
-  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+  {/* <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10"> */}
     {/* Section header with enhanced animation */}
-    <motion.div
+    {/* <motion.div
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-100px" }}
       transition={{ duration: 0.8, ease: "backOut" }}
       className="text-center mb-16 md:mb-20"
-    >
-      <motion.span 
+    > */}
+      {/* <motion.span 
         className="inline-block bg-gradient-to-r from-red-600/10 to-red-400/10 text-red-600 text-sm font-medium px-4 py-1.5 rounded-full mb-4 shadow-sm"
         initial={{ scale: 0.9 }}
         whileInView={{ scale: 1 }}
@@ -605,10 +606,10 @@ const WhyChooseUsAndTestimonials = () => {
         whileInView={{ width: "6rem" }}
         transition={{ delay: 0.4, duration: 0.8 }}
       />
-    </motion.div>
+    </motion.div> */}
 
     {/* Enhanced testimonials carousel */}
-    <div className="relative h-[450px] md:h-[500px]">
+    {/* <div className="relative h-[450px] md:h-[500px]">
       {testimonials.map((testimonial, index) => (
         <motion.div
           key={index}
@@ -630,9 +631,9 @@ const WhyChooseUsAndTestimonials = () => {
             ease: [0.16, 1, 0.3, 1],
             scale: { duration: 0.5 }
           }}
-        >
+        > */}
           {/* Student image with enhanced effects */}
-          <div className="w-40 h-40 md:w-56 md:h-56 mx-auto md:mx-0 relative group">
+          {/* <div className="w-40 h-40 md:w-56 md:h-56 mx-auto md:mx-0 relative group">
             <motion.div 
               className="absolute inset-0 bg-gradient-to-br from-red-600 to-red-400 rounded-full blur-lg opacity-30 group-hover:opacity-50 transition-opacity duration-300"
               initial={{ rotate: 0 }}
@@ -642,8 +643,8 @@ const WhyChooseUsAndTestimonials = () => {
                 repeat: Infinity,
                 ease: "linear"
               }}
-            />
-            <motion.div 
+            /> */}
+            {/* <motion.div 
               className="absolute inset-0 rounded-full border-4 border-white shadow-2xl transition-all duration-300 group-hover:shadow-red-200/50"
               whileHover={{ scale: 1.03 }}
             >
@@ -662,10 +663,10 @@ const WhyChooseUsAndTestimonials = () => {
                 {testimonial.score}
               </div>
             </motion.div>
-          </div>
+          </div> */}
 
           {/* Testimonial content with enhanced design */}
-          <motion.div 
+          {/* <motion.div 
             className="flex-1 bg-white/90 backdrop-blur-md rounded-3xl p-8 md:p-10 shadow-xl max-w-2xl mx-auto border border-white/20"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -698,10 +699,10 @@ const WhyChooseUsAndTestimonials = () => {
           </motion.div>
         </motion.div>
       ))}
-    </div>
+    </div> */}
 
     {/* Enhanced navigation with animation */}
-    <motion.div 
+    {/* <motion.div 
       className="flex justify-center mt-12 space-x-4"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
@@ -730,15 +731,15 @@ const WhyChooseUsAndTestimonials = () => {
           )}
         </motion.button>
       ))}
-    </motion.div>
+    </motion.div> */}
 
     {/* Decorative elements */}
-    <div className="absolute -bottom-20 -left-20 w-40 h-40 rounded-full bg-red-400/10 blur-3xl -z-10" />
+    {/* <div className="absolute -bottom-20 -left-20 w-40 h-40 rounded-full bg-red-400/10 blur-3xl -z-10" />
     <div className="absolute -top-10 -right-10 w-60 h-60 rounded-full bg-red-600/5 blur-3xl -z-10" />
   </div>
-</section>
+</section> */}
       {/* Custom Animation Keyframes */}
-      <style>
+      {/* <style>
         {`
           @keyframes float {
             0% { transform: translateY(0); }
@@ -746,7 +747,8 @@ const WhyChooseUsAndTestimonials = () => {
             100% { transform: translateY(0); }
           }
         `}
-      </style>
+      </style> */}
+      <Testimonials />
     </section>
   );
 };
