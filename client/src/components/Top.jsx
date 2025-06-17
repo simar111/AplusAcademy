@@ -8,6 +8,7 @@ const TopRankers = () => {
     threshold: 0.1,
     triggerOnce: false
   });
+  
 
   useEffect(() => {
     if (inView) {
@@ -283,12 +284,18 @@ const TopRankers = () => {
             }}
             whileTap={{ scale: 0.98 }}
           >
-            <span className="relative z-10 flex items-center justify-center">
-              Start Your Preparation Now
-              <svg className="w-5 h-5 ml-2 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
-              </svg>
-            </span>
+            <span
+  className="relative z-10 flex items-center justify-center cursor-pointer"
+  onClick={() => {
+    window.open('https://wa.me/917355825232?text=Hello%2C%20I%20am%20interested%20in%20your%20courses.', '_blank');
+  }}
+>
+  Start Your Preparation Now
+  <svg className="w-5 h-5 ml-2 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+  </svg>
+</span>
+
             <span className="absolute inset-0 bg-gradient-to-r from-red-700 to-red-900 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
             {/* Animated sparkles */}
             <div className="absolute inset-0 overflow-hidden">

@@ -7,6 +7,8 @@ import HomePage from './pages/Home';
 import Contactus from './pages/Contact';
 import AboutUs from './pages/About';
 import Footer from './components/Footer';
+import PrivacyPolicy from './pages/Privacy';
+import TermsOfService from './pages/Terms';
 
 function App() {
   return (
@@ -16,6 +18,8 @@ function App() {
         <Route path="/courses" element={<Courses />} />
         <Route path="/contact" element={<Contactus />} />
          <Route path="/about" element={<AboutUs />} />
+          <Route path="/privacy" element={<PrivacyPolicy />} />
+          <Route path="/terms" element={<TermsOfService />} />
         <Route path="/" element={<HomePage />} />
       </Routes>
       <Footer />

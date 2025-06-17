@@ -12,6 +12,7 @@ const Hero = () => {
   const backgroundY = useTransform(mouseY, [0, window.innerHeight], [-50, 50]);
   const orbX = useTransform(mouseX, [0, window.innerWidth], [-20, 20]);
   const orbY = useTransform(mouseY, [0, window.innerHeight], [-20, 20]);
+  const Whatsapplink='https://wa.me/+917355825232?text=Hello%20there!';
 
   useEffect(() => {
     setIsVisible(true);
@@ -270,7 +271,9 @@ const Hero = () => {
                   variants={containerVariants}
                 >
                   <motion.a
-                    href="/enroll"
+                   target="_blank"
+                    rel="noopener noreferrer"
+                    href={Whatsapplink}
                     className="relative inline-flex items-center justify-center bg-gradient-to-r from-red-600 to-red-500 text-white font-semibold text-lg px-10 py-4 rounded-full shadow-2xl transition-all overflow-hidden group"
                     variants={childVariants}
                     whileHover={{

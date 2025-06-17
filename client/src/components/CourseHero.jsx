@@ -131,11 +131,11 @@ const HeroSection = () => {
               →
             </motion.span>
           </a>
-          <button
+          {/* <button
             className="px-8 py-4 bg-white border-2 border-red-200 hover:border-red-400 text-red-600 hover:text-red-700 font-semibold text-lg rounded-xl shadow-md hover:shadow-[0_0_15px_rgba(255,105,135,0.4)] transition-all duration-400 transform hover:-translate-y-1 active:translate-y-0"
           >
             Free Assessment
-          </button>
+          </button> */}
         </motion.div>
 
         <motion.div

@@ -7,7 +7,8 @@ const PTECourses = () => {
   const [activeCard, setActiveCard] = useState(null);
   const controls = useAnimation();
   const [ref, inView] = useInView({ triggerOnce: false, threshold: 0.3 });
-  const whatsappLink = 'https://wa.me/1234567890';
+ const whatsappLink = 'https://wa.me/917355825232?text=Hello%2C%20I%20am%20interested%20in%20your%20services.';
+
 
   useEffect(() => {
     if (inView) {

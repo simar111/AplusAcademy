@@ -9,7 +9,7 @@ const NAATIandIELTSCourses = () => {
   const ieltsControls = useAnimation();
   const [naatiRef, naatiInView] = useInView({ triggerOnce: false, threshold: 0.3 });
   const [ieltsRef, ieltsInView] = useInView({ triggerOnce: false, threshold: 0.3 });
-  const whatsappLink = 'https://wa.me/1234567890';
+  const whatsappLink = 'https://wa.me/+917355825232';
 
   useEffect(() => {
     if (naatiInView) {

@@ -124,6 +124,12 @@ const PTEAchievements = () => {
       resultImage: "./images/Palak.jpg",
       highlights: ["Speaking: 57", "Writing: 52", "Reading: 67", "Listening: 54"]
     },
+     {
+      name:"Ayan Arora",
+      score: "69",
+      resultImage: "./images/Ayan.jpg",
+      highlights: ["Speaking: 82", "Writing: 58", "Reading: 87", "Listening: 65"]
+    },
     {
       name: "Dinesh Kumar",
       score: "62",
@@ -274,7 +280,7 @@ const PTEAchievements = () => {
               <div className="text-gray-600">Average Score</div>
             </div>
             <div className="text-center">
-              <div className="text-5xl font-bold text-red-600 mb-2">11</div>
+              <div className="text-5xl font-bold text-red-600 mb-2">12</div>
               <div className="text-gray-600">Students Featured</div>
             </div>
           </div>

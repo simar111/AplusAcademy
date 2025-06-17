@@ -48,7 +48,7 @@ const SocialMediaSection = () => {
       ),
       color: 'bg-gradient-to-br from-purple-500 to-pink-600 hover:from-purple-600 hover:to-pink-700',
       shadow: 'hover:shadow-purple-500/40',
-      href: 'https://www.instagram.com/example',
+      href: 'https://www.instagram.com/a_plusacademy2025?igsh=MXY0d2RoNm44YW9jNQ==',
     },
     {
       name: 'Facebook',

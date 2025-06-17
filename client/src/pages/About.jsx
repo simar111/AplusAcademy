@@ -1,12 +1,14 @@
 import React, { useEffect } from 'react';
 import { motion, useAnimation } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import { Award, BookOpen, Users, Clock, BarChart2, CheckCircle, Globe, Star, Zap } from 'react-feather';
+import { Award, BookOpen, Users, Clock, BarChart2, CheckCircle, Globe, Star, Zap ,ArrowRight} from 'react-feather';
 import PTEAchievements from '../components/Achive';
+
 
 const AboutUs = () => {
   const controls = useAnimation();
   const [ref, inView] = useInView();
+  const Whatsapplink = 'https://wa.me/917355825232?text=Hello%2C%20I%20am%20interested%20in%20your%20PTE%2C%20IELTS%2C%20or%20NAATI%20courses.%20Please%20share%20details.';
 
   useEffect(() => {
     if (inView) {
@@ -761,55 +763,133 @@ const AboutUs = () => {
       {/* Results Section */}
       <PTEAchievements />
       {/* CTA Section */}
-      <section className="relative py-24 bg-gradient-to-br from-gray-50 to-white z-10">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <motion.div 
-            className="bg-white rounded-3xl p-12 shadow-xl border border-gray-200/50"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-          >
-            <motion.h2 
-              className="text-3xl sm:text-4xl font-extrabold text-gray-800 mb-6"
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.2 }}
-            >
-              Ready to Transform Your PTE Score?
-            </motion.h2>
-            
-            <motion.p 
-              className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto"
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.4 }}
-            >
-              Join thousands of successful students who achieved their dream scores with our proven methodology.
-            </motion.p>
-            
-            <motion.div
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.6 }}
-            >
-              <a
-                href="/contact"
-                className="inline-block bg-gradient-to-r from-red-600 to-red-700 text-white font-semibold text-lg px-10 py-5 rounded-xl shadow-lg hover:shadow-xl transition-all hover:scale-105 group relative overflow-hidden"
-              >
-                <span className="absolute inset-0 bg-gradient-to-r from-white/10 to-white/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></span>
-                <span className="relative z-10 flex items-center justify-center gap-2">
-                  Start Your Journey <Zap className="w-5 h-5" />
-                </span>
-              </a>
-            </motion.div>
-          </motion.div>
-        </div>
-      </section>
+     <section className="relative py-32 bg-gradient-to-br from-white via-gray-50 to-gray-100 overflow-hidden">
+  {/* Floating particles background */}
+  <div className="absolute inset-0 z-0">
+    {[...Array(20)].map((_, i) => (
+      <div 
+        key={i}
+        className="absolute rounded-full animate-float"
+        style={{
+          background: `radial-gradient(circle, rgba(220, 38, 38, ${Math.random() * 0.2 + 0.05}), transparent)`,
+          width: `${Math.random() * 20 + 5}px`,
+          height: `${Math.random() * 20 + 5}px`,
+          left: `${Math.random() * 100}%`,
+          top: `${Math.random() * 100}%`,
+          animationDelay: `${Math.random() * 10}s`,
+          animationDuration: `${Math.random() * 20 + 10}s`,
+          filter: 'blur(8px)'
+        }}
+      />
+    ))}
+  </div>
 
+  {/* Gradient glow */}
+  <div className="absolute -top-1/4 -left-1/4 w-[150%] h-[150%] opacity-20">
+    <div className="absolute top-1/3 left-1/3 w-96 h-96 rounded-full bg-red-500/30 blur-[100px] animate-pulse-slow" />
+    <div className="absolute top-2/3 left-2/3 w-96 h-96 rounded-full bg-amber-500/30 blur-[100px] animate-pulse-slow delay-1000" />
+  </div>
+
+  <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+    <motion.div 
+      className="bg-white/90 backdrop-blur-lg rounded-3xl p-12 border border-white/20 shadow-2xl"
+      initial={{ opacity: 0, y: 50 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-100px" }}
+      transition={{ 
+        duration: 0.8,
+        type: "spring",
+        damping: 15,
+        stiffness: 100
+      }}
+    >
+      <motion.h2
+        className="text-4xl sm:text-5xl md:text-6xl font-extrabold text-gray-900 mb-8 leading-tight"
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ 
+          delay: 0.2,
+          duration: 0.8,
+          type: "spring"
+        }}
+      >
+        <span className="bg-gradient-to-r from-red-600 to-amber-500 bg-clip-text text-transparent">
+          Ready to Transform
+        </span> <br className="hidden sm:block" />
+        Your <span className="relative">
+          Exam
+          <span className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-red-600 to-amber-500 animate-underline" />
+        </span> Score?
+      </motion.h2>
+
+      <motion.p
+        className="text-lg sm:text-xl text-gray-600 mb-12 max-w-3xl mx-auto"
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true }}
+        transition={{ delay: 0.4 }}
+      >
+        Join thousands of successful students who've achieved their dream scores with our expert-led coaching and proven methods.
+      </motion.p>
+
+      <motion.div
+        initial={{ opacity: 0, scale: 0.9 }}
+        whileInView={{ opacity: 1, scale: 1 }}
+        viewport={{ once: true }}
+        transition={{ delay: 0.6 }}
+        whileHover={{ scale: 1.05 }}
+        whileTap={{ scale: 0.98 }}
+      >
+        <button
+          className="relative inline-flex items-center justify-center bg-gradient-to-r from-red-600 to-amber-500 text-white font-semibold text-lg px-12 py-5 rounded-full overflow-hidden group shadow-xl hover:shadow-2xl transition-all"
+          onClick={() => window.open(Whatsapplink, '_blank')}
+        >
+          <span className="absolute inset-0 bg-white/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+          <span className="relative z-10 flex items-center gap-3">
+            Start Your Journey 
+            <motion.span
+              initial={{ x: -5 }}
+              animate={{ x: 5 }}
+              transition={{ 
+                repeat: Infinity,
+                repeatType: "reverse",
+                duration: 1
+              }}
+            >
+              <ArrowRight className="w-5 h-5" />
+            </motion.span>
+          </span>
+          <span className="absolute inset-0 border-2 border-white/20 rounded-full pointer-events-none animate-ping-slow opacity-0 group-hover:opacity-100" />
+        </button>
+      </motion.div>
+    </motion.div>
+  </div>
+
+  <style jsx>{`
+    @keyframes float {
+      0%, 100% { transform: translateY(0) translateX(0); }
+      50% { transform: translateY(-50px) translateX(20px); }
+    }
+    @keyframes pulse-slow {
+      0%, 100% { opacity: 0.2; }
+      50% { opacity: 0.3; }
+    }
+    @keyframes underline {
+      0% { width: 0; left: 0; }
+      50% { width: 100%; left: 0; }
+      100% { width: 0; left: 100%; }
+    }
+    .animate-float { animation: float linear infinite; }
+    .animate-pulse-slow { animation: pulse-slow 6s ease-in-out infinite; }
+    .animate-underline { animation: underline 3s ease-in-out infinite; }
+    .animate-ping-slow { animation: ping 3s cubic-bezier(0,0,0.2,1) infinite; }
+    @keyframes ping {
+      0% { transform: scale(0.9); opacity: 0.5; }
+      100% { transform: scale(1.2); opacity: 0; }
+    }
+  `}</style>
+</section>
       {/* Custom Animations */}
       <style jsx global>{`
         @keyframes pulse {
