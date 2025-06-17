@@ -43,7 +43,7 @@ const HeroSection = () => {
   };
 
   return (
-    <div className="relative min-h-[90vh] flex items-center justify-center text-center overflow-hidden bg-gradient-to-b from-white to-red-100/50">
+    <div className="relative min-h-[90vh] flex items-center justify-center text-center overflow-hidden bg-gradient-to-b from-white to-red-100/50 z-10">
       {/* Animated Background with Floating Shapes */}
       <div className="absolute inset-0 pointer-events-none">
         {[...Array(20)].map((_, i) => (
@@ -80,7 +80,7 @@ const HeroSection = () => {
         variants={containerVariants}
         initial="hidden"
         animate={controls}
-        className="relative z-20 max-w-5xl mx-auto px-6 sm:px-8 py-20"
+        className="relative z-10 max-w-5xl mx-auto px-6 sm:px-8 py-20"
       >
         <motion.div
           variants={textVariants}
@@ -131,11 +131,6 @@ const HeroSection = () => {
               →
             </motion.span>
           </a>
-          {/* <button
-            className="px-8 py-4 bg-white border-2 border-red-200 hover:border-red-400 text-red-600 hover:text-red-700 font-semibold text-lg rounded-xl shadow-md hover:shadow-[0_0_15px_rgba(255,105,135,0.4)] transition-all duration-400 transform hover:-translate-y-1 active:translate-y-0"
-          >
-            Free Assessment
-          </button> */}
         </motion.div>
 
         <motion.div
@@ -161,7 +156,7 @@ const HeroSection = () => {
 
         <motion.div
           variants={textVariants}
-          className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20"
+          className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-10"
         >
           <div className="flex flex-col items-center">
             <div className="w-8 h-12 border-2 border-red-300 rounded-full flex justify-center p-1.5">

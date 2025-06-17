@@ -114,9 +114,18 @@ const Navbar = () => {
       <div
         className={`md:hidden bg-gray-100/95 backdrop-blur-lg shadow-xl transition-all duration-600 ease-in-out ${
           isOpen ? 'max-h-72 opacity-100 translate-y-0' : 'max-h-0 opacity-0 -translate-y-4'
-        } rounded-b-lg`}
+        } rounded-b-lg relative z-30`}
       >
         <div className="px-4 pt-3 pb-4 space-y-2 sm:px-6">
+          <Link
+            to="/"
+            onClick={handleLinkClick}
+            className="block px-4 py-2 text-gray-800 hover:text-red-600 hover:bg-gray-200/60 rounded-lg font-semibold text-lg transition-all duration-400 hover:scale-105 relative overflow-hidden group"
+          >
+            Home
+            <span className="absolute inset-0 bg-red-600/20 scale-0 group-hover:scale-100 transition-transform duration-300 rounded-lg origin-center"></span>
+          </Link>
+
           <Link
             to="/courses"
             onClick={handleLinkClick}
