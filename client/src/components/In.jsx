@@ -181,9 +181,9 @@ const NAATIandIELTSCourses = () => {
                     <motion.img
                       src={course.image}
                       alt={course.title}
-                      width="400"
+                      width="570"
                       height="400"
-                      className="w-full h-[400px] object-cover"
+                      className="w-[550px] h-[570px] object-cover"
                       whileHover={{ scale: 1.2, rotate: 2 }}
                       transition={{ duration: 0.9, ease: [0.68, -0.55, 0.265, 1.55] }}
                     />
