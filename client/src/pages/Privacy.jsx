@@ -252,9 +252,9 @@ const PrivacyPolicy = () => {
             <p className="text-gray-600">
               If you have questions about this Privacy Policy, contact us at:
               <br />
-              Email: [Contact Email]
+              Email: aplusacademy48@gmail.com
               <br />
-              Address: [Company Address]
+              Address: Auckland,New Zealand
             </p>
           </motion.div>
         </motion.div>

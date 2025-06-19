@@ -9,9 +9,13 @@ import AboutUs from './pages/About';
 import Footer from './components/Footer';
 import PrivacyPolicy from './pages/Privacy';
 import TermsOfService from './pages/Terms';
+import TechFestHero from './components/Thero';
+import APlusHero from './components/AplusHero';
 
 function App() {
   return (
+    // <APlusHero />
+    // <TechFestHero />
     <Router>
       <Navbar />
       <Routes>

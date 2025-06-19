@@ -229,9 +229,9 @@ const TermsOfService = () => {
             <p className="text-gray-600">
               If you have questions about these Terms, contact us at:
               <br />
-              Email: [Contact Email]
+              Email: aplusacademy48
               <br />
-              Address: [Company Address]
+              Address:Auckland,New Zealand
             </p>
           </motion.div>
         </motion.div>
