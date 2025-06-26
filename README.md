@@ -16,23 +16,19 @@ Aplus Academy is a modern, responsive, and fully animated frontend educational w
 ## 📁 Project Structure
 
 Aplus-Academy/
-│
 ├── public/
-│ └── index.html
-│
+│   └── index.html
 ├── src/
-│ ├── components/ # Reusable UI components (Navbar, Footer, etc.)
-│ ├── pages/ # Page components (Home, About, Courses, Contact)
-│ ├── App.jsx # Root component with routing
-│ ├── main.jsx # Entry point
-│ └── index.css # Tailwind base styles
-│
+│   ├── components/           # Reusable UI components (Navbar, Footer, etc.)
+│   ├── pages/                # Page components (Home, About, Courses, Contact)
+│   ├── App.jsx               # Root component with routing
+│   ├── main.jsx              # Entry point
+│   └── index.css             # Tailwind base styles
 ├── .gitignore
 ├── package.json
 ├── tailwind.config.js
 └── README.md
 
----
 
 ## 🚀 Features
 
