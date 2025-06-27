@@ -1,0 +1,62 @@
+@media (prefers-reduced-motion: reduce) {
+  .animate-wave,
+  .animate-glow-border,
+  .animate-pulse-slow,
+  [class*='group-hover'],
+  [class*='motion-'] {
+    animation: none !important;
+    transition: none !important;
+    transform: none !important;
+  }
+}
+
+@keyframes wave {
+  0% {
+    d: path('M0,50 C360,80 720,20 1080,50 C1260,70 1440,40 1440,40 L1440,100 L0,100 Z');
+  }
+  50% {
+    d: path('M0,40 C360,60 720,80 1080,40 C1260,20 1440,60 1440,60 L1440,100 L0,100 Z');
+  }
+  100% {
+    d: path('M0,50 C360,80 720,20 1080,50 C1260,70 1440,40 1440,40 L1440,100 L0,100 Z');
+  }
+}
+
+@keyframes glow-border {
+  0% {
+    border-color: rgba(220, 38, 38, 0.4);
+    box-shadow: 0 0 5px rgba(220, 38, 38, 0.4);
+  }
+  50% {
+    border-color: rgba(220, 38, 38, 0.7);
+    box-shadow: 0 0 15px rgba(220, 38, 38, 0.7);
+  }
+  100% {
+    border-color: rgba(220, 38, 38, 0.4);
+    box-shadow: 0 0 5px rgba(220, 38, 38, 0.4);
+  }
+}
+
+@keyframes pulse-slow {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.animate-wave {
+  animation: wave 8s infinite ease-in-out;
+}
+
+.animate-glow-border {
+  animation: glow-border 4s infinite ease-in-out;
+}
+
+.animate-pulse-slow {
+  animation: pulse-slow 2s infinite ease-in-out;
+}
