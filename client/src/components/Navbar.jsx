@@ -1,98 +1,184 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
+import { FiHome, FiBookOpen, FiInfo, FiMail, FiUser, FiMessageSquare } from 'react-icons/fi';
+import { motion, AnimatePresence } from 'framer-motion';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isLoaded, setIsLoaded] = useState(false);
+  const [hoveredItem, setHoveredItem] = useState(null);
+  const location = useLocation();
 
-  // Trigger animation on mount
   useEffect(() => {
     setIsLoaded(true);
+    return () => setIsOpen(false);
   }, []);
 
-  // Function to close mobile menu
   const handleLinkClick = () => {
     setIsOpen(false);
   };
 
+  const openWhatsApp = () => {
+    window.open('https://wa.me/+917355825232', '_blank');
+  };
+
+  const navItems = [
+    { path: "/", name: "Home", icon: <FiHome className="text-lg" /> },
+    { path: "/courses", name: "Courses", icon: <FiBookOpen className="text-lg" /> },
+    { path: "/about", name: "About Us", icon: <FiInfo className="text-lg" /> },
+    { path: "/contact", name: "Contact", icon: <FiMail className="text-lg" /> },
+  ];
+
   return (
-    <nav
-      className={`bg-gradient-to-r from-gray-100 via-gray-50 to-gray-200 shadow-2xl fixed w-full z-20 backdrop-blur-md rounded-b-lg transition-all duration-500 hover:shadow-[0_10px_30px_rgba(0,0,0,0.15)] border-b-2 border-gradient-to-r from-red-600 to-transparent`}
-    >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between h-16">
+    <nav className="bg-white/95 backdrop-blur-md shadow-sm fixed w-full z-50 border-b border-gray-100">
+      <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex justify-between h-16 items-center">
           {/* Logo Section */}
-          <div className="flex items-center">
-            <div className="flex-shrink-0">
-              <img
-                src="./images/Logo.jpg"
-                alt="A+ Academy PTE Center Logo"
-                className={`h-10 w-auto transform transition-all duration-700 ${
-                  isLoaded ? 'opacity-100 scale-100' : 'opacity-0 scale-95'
-                } hover:scale-110 hover:shadow-[0_0_15px_rgba(220,38,38,0.5)] hover:animate-pulse rounded-full`}
-              />
-            </div>
-          </div>
-
-          {/* Navigation Links */}
-          <div className="hidden md:flex items-center space-x-6">
-            <Link
-              to="/"
-              className="relative text-gray-800 font-semibold text-lg transition-all duration-400 group hover:text-red-600 px-4 py-2 rounded-full overflow-hidden"
-            >
-              <span className="relative z-10 transition-all duration-400 group-hover:text-shadow-[0_0_8px_rgba(220,38,38,0.8)] group-hover:tracking-wide">
-                Home
-              </span>
-              <span className="absolute inset-0 bg-red-600/20 scale-x-0 group-hover:scale-x-100 transition-transform duration-400 origin-left rounded-full"></span>
+          <motion.div 
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: isLoaded ? 1 : 0, x: isLoaded ? 0 : -20 }}
+            transition={{ 
+              type: "spring",
+              stiffness: 300,
+              damping: 20
+            }}
+            className="flex items-center space-x-2"
+          >
+            <Link to="/" className="flex items-center group">
+              <motion.div
+                whileHover={{ 
+                  scale: 1.05,
+                  rotate: -2,
+                  transition: { 
+                    type: "spring",
+                    stiffness: 300,
+                    damping: 10
+                  }
+                }}
+              >
+                <img
+                  src="./images/Logo.jpg"
+                  alt="A+ Academy Logo"
+                  className="h-10 w-auto rounded-full border-2 border-white shadow-lg transition-all duration-300 hover:shadow-[0_0_12px_rgba(220,38,38,0.25)]"
+                />
+              </motion.div>
+              <motion.span 
+                className="ml-3 text-xl font-bold bg-gradient-to-r from-red-600 to-red-800 bg-clip-text text-transparent tracking-tight"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: isLoaded ? 1 : 0 }}
+                transition={{ 
+                  delay: 0.2,
+                  type: "spring",
+                  stiffness: 300,
+                  damping: 20
+                }}
+              >
+                A+ Academy
+              </motion.span>
             </Link>
+          </motion.div>
 
-            <div className="h-6 w-px bg-gray-300/50"></div>
+          {/* Desktop Navigation */}
+          <div className="hidden lg:flex items-center space-x-1">
+            {navItems.map((item) => (
+              <Link
+                key={item.path}
+                to={item.path}
+                className={`relative px-4 py-2 rounded-lg transition-colors duration-200 ${
+                  location.pathname === item.path 
+                    ? 'text-red-600 font-medium' 
+                    : 'text-gray-700 hover:text-red-600'
+                }`}
+                onMouseEnter={() => setHoveredItem(item.path)}
+                onMouseLeave={() => setHoveredItem(null)}
+              >
+                <div className="flex items-center z-10 relative">
+                  <span className={`mr-2 transition-colors ${
+                    location.pathname === item.path ? 'text-red-600' : 'group-hover:text-red-600'
+                  }`}>
+                    {item.icon}
+                  </span>
+                  <span className="text-[15px] tracking-wide">
+                    {item.name}
+                  </span>
+                </div>
+                
+                {/* Hover background animation */}
+                {hoveredItem === item.path && (
+                  <motion.div
+                    className={`absolute inset-0 rounded-lg ${
+                      location.pathname === item.path 
+                        ? 'bg-red-100/40' 
+                        : 'bg-red-50/30'
+                    }`}
+                    layoutId="navHover"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ 
+                      type: "spring",
+                      stiffness: 300,
+                      damping: 20
+                    }}
+                  />
+                )}
 
-            <Link
-              to="/courses"
-              className="relative text-gray-800 font-semibold text-lg transition-all duration-400 group hover:text-red-600 px-4 py-2 rounded-full overflow-hidden"
+                {/* Active page indicator */}
+                {location.pathname === item.path && (
+                  <motion.div
+                    className="absolute bottom-0 left-1/2 w-4 h-[2px] bg-red-600 rounded-t-full"
+                    initial={{ scaleX: 0 }}
+                    animate={{ scaleX: 1 }}
+                    transition={{ 
+                      type: "spring",
+                      stiffness: 300,
+                      damping: 15
+                    }}
+                    layoutId="activeIndicator"
+                  />
+                )}
+              </Link>
+            ))}
+
+            <div className="h-5 w-px bg-gray-200 mx-2"></div>
+
+            {/* WhatsApp Enrollment Button */}
+            <motion.div
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
+              transition={{ 
+                type: "spring",
+                stiffness: 400,
+                damping: 15
+              }}
             >
-              <span className="relative z-10 transition-all duration-400 group-hover:text-shadow-[0_0_8px_rgba(220,38,38,0.8)] group-hover:tracking-wide">
-                Courses
-              </span>
-              <span className="absolute inset-0 bg-red-600/20 scale-x-0 group-hover:scale-x-100 transition-transform duration-400 origin-left rounded-full"></span>
-            </Link>
-
-            <div className="h-6 w-px bg-gray-300/50"></div>
-
-            <Link
-              to="/about"
-              className="relative text-gray-800 font-semibold text-lg transition-all duration-400 group hover:text-red-600 px-4 py-2 rounded-full overflow-hidden"
-            >
-              <span className="relative z-10 transition-all duration-400 group-hover:text-shadow-[0_0_8px_rgba(220,38,38,0.8)] group-hover:tracking-wide">
-                About Us
-              </span>
-              <span className="absolute inset-0 bg-red-600/20 scale-x-0 group-hover:scale-x-100 transition-transform duration-400 origin-left rounded-full"></span>
-            </Link>
-
-            <div className="h-6 w-px bg-gray-300/50"></div>
-
-            <Link
-              to="/contact"
-              className="relative text-gray-800 font-semibold text-lg transition-all duration-400 group hover:text-red-600 px-4 py-2 rounded-full overflow-hidden"
-            >
-              <span className="relative z-10 transition-all duration-400 group-hover:text-shadow-[0_0_8px_rgba(220,38,38,0.8)] group-hover:tracking-wide">
-                Contact Us
-              </span>
-              <span className="absolute inset-0 bg-red-600/20 scale-x-0 group-hover:scale-x-100 transition-transform duration-400 origin-left rounded-full"></span>
-            </Link>
+              <button
+                onClick={openWhatsApp}
+                className="flex items-center px-4 py-2 text-[15px] font-medium text-white bg-gradient-to-r from-green-500 to-green-600 rounded-lg shadow hover:shadow-md transition-all duration-300 hover:from-green-600 hover:to-green-700"
+              >
+                <FiMessageSquare className="mr-2 text-lg" />
+                Enroll on WhatsApp
+              </button>
+            </motion.div>
           </div>
 
           {/* Mobile Menu Button */}
-          <div className="md:hidden flex items-center">
+          <motion.div 
+            className="lg:hidden flex items-center"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            transition={{ 
+              type: "spring",
+              stiffness: 400,
+              damping: 15
+            }}
+          >
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="text-gray-800 hover:text-red-600 focus:outline-none transform transition-all duration-400 hover:scale-125 hover:shadow-[0_0_10px_rgba(220,38,38,0.5)]"
+              className="inline-flex items-center justify-center p-2 rounded-md text-gray-700 hover:text-red-600 focus:outline-none transition-colors duration-200"
+              aria-label="Menu"
             >
               <svg
-                className={`h-7 w-7 transform transition-transform duration-400 ${
-                  isOpen ? 'rotate-180' : 'rotate-0'
-                }`}
+                className={`h-6 w-6 transform transition-transform duration-300 ${isOpen ? 'rotate-90' : 'rotate-0'}`}
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -106,54 +192,90 @@ const Navbar = () => {
                 />
               </svg>
             </button>
-          </div>
+          </motion.div>
         </div>
       </div>
 
       {/* Mobile Menu */}
-      <div
-        className={`md:hidden bg-gray-100/95 backdrop-blur-lg shadow-xl transition-all duration-600 ease-in-out ${
-          isOpen ? 'max-h-72 opacity-100 translate-y-0' : 'max-h-0 opacity-0 -translate-y-4'
-        } rounded-b-lg relative z-30`}
-      >
-        <div className="px-4 pt-3 pb-4 space-y-2 sm:px-6">
-          <Link
-            to="/"
-            onClick={handleLinkClick}
-            className="block px-4 py-2 text-gray-800 hover:text-red-600 hover:bg-gray-200/60 rounded-lg font-semibold text-lg transition-all duration-400 hover:scale-105 relative overflow-hidden group"
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ 
+              opacity: 1, 
+              height: "auto"
+            }}
+            exit={{ 
+              opacity: 0, 
+              height: 0
+            }}
+            transition={{ 
+              type: "spring",
+              stiffness: 300,
+              damping: 20
+            }}
+            className="lg:hidden bg-white shadow-xl overflow-hidden"
           >
-            Home
-            <span className="absolute inset-0 bg-red-600/20 scale-0 group-hover:scale-100 transition-transform duration-300 rounded-lg origin-center"></span>
-          </Link>
+            <div className="px-4 pt-2 pb-6 space-y-1">
+              {navItems.map((item) => (
+                <motion.div
+                  key={`mobile-${item.path}`}
+                  initial={{ opacity: 0, x: -10 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ 
+                    type: "spring",
+                    stiffness: 300,
+                    damping: 15
+                  }}
+                >
+                  <Link
+                    to={item.path}
+                    onClick={handleLinkClick}
+                    className={`flex items-center px-4 py-3 text-[15px] font-medium rounded-lg transition-colors ${
+                      location.pathname === item.path
+                        ? 'text-red-600 bg-red-50'
+                        : 'text-gray-800 hover:text-red-600 hover:bg-gray-50'
+                    }`}
+                  >
+                    <span className="mr-3">{item.icon}</span>
+                    {item.name}
+                    {location.pathname === item.path && (
+                      <motion.span 
+                        className="ml-auto h-2 w-2 bg-red-600 rounded-full"
+                        initial={{ scale: 0 }}
+                        animate={{ scale: 1 }}
+                        transition={{ 
+                          type: "spring",
+                          stiffness: 500,
+                          damping: 15
+                        }}
+                      />
+                    )}
+                  </Link>
+                </motion.div>
+              ))}
 
-          <Link
-            to="/courses"
-            onClick={handleLinkClick}
-            className="block px-4 py-2 text-gray-800 hover:text-red-600 hover:bg-gray-200/60 rounded-lg font-semibold text-lg transition-all duration-400 hover:scale-105 relative overflow-hidden group"
-          >
-            Courses
-            <span className="absolute inset-0 bg-red-600/20 scale-0 group-hover:scale-100 transition-transform duration-300 rounded-lg origin-center"></span>
-          </Link>
-
-          <Link
-            to="/about"
-            onClick={handleLinkClick}
-            className="block px-4 py-2 text-gray-800 hover:text-red-600 hover:bg-gray-200/60 rounded-lg font-semibold text-lg transition-all duration-400 hover:scale-105 relative overflow-hidden group"
-          >
-            About Us
-            <span className="absolute inset-0 bg-red-600/20 scale-0 group-hover:scale-100 transition-transform duration-300 rounded-lg origin-center"></span>
-          </Link>
-
-          <Link
-            to="/contact"
-            onClick={handleLinkClick}
-            className="block px-4 py-2 text-gray-800 hover:text-red-600 hover:bg-gray-200/60 rounded-lg font-semibold text-lg transition-all duration-400 hover:scale-105 relative overflow-hidden group"
-          >
-            Contact Us
-            <span className="absolute inset-0 bg-red-600/20 scale-0 group-hover:scale-100 transition-transform duration-300 rounded-lg origin-center"></span>
-          </Link>
-        </div>
-      </div>
+              <motion.div
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ 
+                  type: "spring",
+                  stiffness: 300,
+                  damping: 15
+                }}
+              >
+                <button
+                  onClick={openWhatsApp}
+                  className="flex items-center justify-center w-full mx-4 px-4 py-3 text-[15px] font-medium text-white bg-gradient-to-r from-green-500 to-green-600 rounded-lg shadow hover:shadow-md transition-all duration-300"
+                >
+                  <FiMessageSquare className="mr-2 text-lg" />
+                  Enroll on WhatsApp
+                </button>
+              </motion.div>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </nav>
   );
 };
