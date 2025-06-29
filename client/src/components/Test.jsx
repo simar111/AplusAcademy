@@ -368,6 +368,7 @@ const Testimonials = () => {
                             className="rounded-full w-20 h-20 object-cover border-4 border-red-100/50 transition-transform duration-500 group-hover:scale-110"
                             src={testimonial.image}
                             alt={testimonial.name}
+                             loading="lazy"
                           />
                         </div>
                         <div className="grid gap-1">

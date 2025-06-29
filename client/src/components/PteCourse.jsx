@@ -166,6 +166,7 @@ const PTECourses = () => {
                   className="w-full h-[340px] object-cover transition-transform duration-800"
                   whileHover={{ scale: 1.2, rotate: 4 }}
                   transition={{ duration: 0.8, ease: [0.68, -0.55, 0.265, 1.55] }}
+                   loading="lazy"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
               </div>

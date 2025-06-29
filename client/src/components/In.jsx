@@ -186,6 +186,7 @@ const NAATIandIELTSCourses = () => {
                       className="w-[550px] h-[570px] object-cover"
                       whileHover={{ scale: 1.2, rotate: 2 }}
                       transition={{ duration: 0.9, ease: [0.68, -0.55, 0.265, 1.55] }}
+                       loading="lazy"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-70 transition-opacity duration-700"></div>
                   </div>

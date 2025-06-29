@@ -250,6 +250,7 @@ const CourseSlider = () => {
                           initial={{ scale: 1.1 }}
                           animate={{ scale: isHovered ? 1.05 : 1 }}
                           transition={{ duration: 0.8 }}
+                           loading="lazy"
                         />
                         {/* Course Badge */}
                         <motion.div 
